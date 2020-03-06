@@ -2,6 +2,11 @@
 #
 .DS_Store
 
+# To check :)
+android/
+ios/
+googleFont/
+
 # Xcode
 #
 build/

@@ -1,0 +1,467 @@
+[{
+        "province": [{
+                "name": "kasai central",
+                "id": "kasai_central",
+                "territory": {
+                    "KAZUMBA": true
+                },
+                "health_area": {
+                    "KALOMBA": true,
+                    "TSHITADI": true,
+                    "TSHIASANGOMBE": true,
+                    "KASANGA LUEBO": true,
+                    "MFUAMBA": true,
+                    "MUTONDO": true,
+                    "MBUNKU": true,
+                    " KATSHIABALA": true,
+                    "NSUANA": true,
+                    "MUTETELA": true,
+                    "KASUKU": true,
+                    "TSHIBANDAMA": true,
+                    "AIGLE BADDY": true,
+                    "KALENDENDE": true,
+                    "MUENDELE": true,
+                    "KAKUNGULA": true
+                },
+                "health_zone": {
+                    "KALOMBA": true
+                },
+                "group": {
+                    "BAKABALA": true,
+                    "TSHITADI": true,
+                    "TSHIASANGOMBE": true,
+                    "BAKUMBA": true,
+                    "MFUAMBA": true,
+                    "MUTONDO": true,
+                    "BAKUATSHENZE": true,
+                    "BAKUANJIBA": true,
+                    "MATADI BABUSONGO": true,
+                    "TSHISANGA MPATA": true,
+                    "BA - BUSONGO": true,
+                    "KAKUANJIBA": true,
+                    "BAKUA - LUBALA": true,
+                    "BENAKUBA": true,
+                    "KATSHIABALA": true
+                },
+                "chieftaincy": {
+                    "KAKOBA": true,
+                    "TSHITADI": true,
+                    "TSHIASANGOMBE": true,
+                    "LONSA": true,
+                    " MFUAMBA": true,
+                    "MUTONDO": true,
+                    "MBUNKU": true,
+                    "MATADI": true,
+                    "MUTETELA": true,
+                    "KATSHIABALA": true,
+                    "NDAMBI KAWAYA": true,
+                    "KAKUNGULA": true,
+                    "MWAZEMBA": true
+                },
+                "village": {
+                    "TSHONA": true,
+                    "TSHITADI": true,
+                    "TSHIASANGOMBE": true,
+                    "KAKUNGULA": true,
+                    "MFUAMBA": true,
+                    "MUTONDO": true,
+                    "MUNYANYA MUILA": true,
+                    "KATSHIABALA": true,
+                    "NSUANA": true,
+                    "MUTETELA": true,
+                    "KASUKU": true,
+                    "TSHIBANDAMA": true,
+                    "NDAMBI KAWAYA": true,
+                    "KALENDENDE": true,
+                    "MUENDELE": true
+                }
+            },
+            {
+                "name": "ituri",
+                "id": "ituri",
+                "territory": {
+                    "DJUGU": true
+                },
+                "health_area": {
+                    "LOGA": true,
+                    "SALIBOKO": true,
+                    "KPARNGANZA": true,
+                    "KPALO": true,
+                    "LOGO/TAKPA": true,
+                    "BLUKWA MBI": true,
+                    "DRODRO": true,
+                    "BLUKWA ETAT": true,
+                    "UCHA": true
+                },
+                "health_zone": {
+                    "LITA": true,
+                    "DRODRO": true
+                },
+                "group": {
+                    "SALIBOKO": true,
+                    "PIMBO": true,
+                    "LOGA": true,
+                    "LOSSANDREMA": true,
+                    "BUKU": true,
+                    "DIROKPA": true
+                },
+                "chieftaincy": {
+                    "WALENDU/TATSI": true,
+                    "BAHEMA NORD": true
+                },
+                "village": {
+                    "LOGA": true,
+                    "BUNA": true,
+                    "TSORO/GUKPA": true,
+                    "CHUMBU": true,
+                    "KPABU": true,
+                    "TSALAKA": true,
+                    "TCHE": true,
+                    "LOGO": true,
+                    "SESSETI": true,
+                    "KPALUBA": true,
+                    "JISSA": true,
+                    "LOVI": true,
+                    "CHUSSA": true,
+                    "DZATHI": true,
+                    "DRODRO": true,
+                    "TCHAU": true,
+                    "LITHO": true
+                }
+            },
+            {
+                "name": "nord_kivu",
+                "id": "nord_kivu",
+                "territory": {
+                    " MASISI": true
+                },
+                "health_area": {
+                    "BUSHANGA": true,
+                    "RUGARAMA": true,
+                    "KALEMBE": true
+                },
+                "health_zone": {
+                    "MWESO-TERRITOIRE": true
+                },
+                "group": {
+                    " BASHALI MOKOTO": true
+                },
+                "chieftaincy": {
+                    "BASHALI": true
+                },
+                "village": {
+                    "BUSHANGA 1": true,
+                    "BUSHANGA 2": true,
+                    "RUGARAMA": true,
+                    "KASHANJE": true,
+                    "KALEMBE": true,
+                    "KALEMO": true
+                }
+            },
+            {
+                "name": "kasai",
+                "id": "kasai",
+                "territory": {
+                    "KAMONIA": true,
+                    "KAMWESHA": true
+                },
+                "health_area": {
+                    "TSHIMBINDA 1": true,
+                    "TSHINDEMBA": true,
+                    "MULAMBA TSHIONZA": true,
+                    "KATALUSHI": true,
+                    "MBAU": true,
+                    "KABAMBAYI": true,
+                    "TSHIMBINDA 2": true,
+                    "MAKUMBI": true,
+                    "INGA": true,
+                    "KATOKA": true,
+                    "KAKUMBA": true,
+                    "KAMBA NKUVU": true
+                },
+                "health_zone": {
+                    "KALONDA OUEST": true,
+                    "KAMWESHA": true
+                },
+                "group": {
+                    "KABUANGA TSHISENGE": true,
+                    "BENA TSHIPANGA": true,
+                    "BENA TSHANGA": true,
+                    "BAKUA MFUNYA": true,
+                    "TSHINVUNGU": true,
+                    "BENA KABANDA": true,
+                    "KABUMBA": true,
+                    "BAKUA TSHIPANGA": true
+                },
+                "chieftaincy": {
+                    "TSHIKAPA": true,
+                    "KASAI KABAMBAYI": true
+                },
+                "village": {
+                    "Ntumba Nsumbula": true,
+                    "Tshindemba": true,
+                    "Mulamba Tshionza": true,
+                    "Katalushi": true,
+                    "Mbuyi Tshiala": true,
+                    "Lukombo": true,
+                    "Kabuanga Tshinsenge": true,
+                    "Mwanza Mukala": true,
+                    "Mole": true,
+                    "Kangulube": true
+                }
+            }
+        ]
+    },
+    {
+        "territory": [{
+                " name": "KAZUMBA",
+                "id": "KAZUMBA",
+                "province": {
+                    "KASAI CENTRAL": true
+                },
+                "health_area": {
+                    "KALOMBA": true,
+                    "TSHITADI": true,
+                    "TSHIASANGOMBE": true,
+                    "KASANGA LUEBO": true,
+                    "MFUAMBA": true,
+                    "MUTONDO": true,
+                    "MBUNKU": true,
+                    "KATSHIABALA": true,
+                    "NSUANA": true,
+                    "MUTETELA": true,
+                    "KASUKU": true,
+                    "TSHIBANDAMA": true,
+                    "AIGLE BADDY": true,
+                    "KALENDENDE": true,
+                    "MUENDELE": true,
+                    "KAKUNGULA": true
+                },
+                "health_zone": {
+                    "KALOMBA": true
+                },
+                "group": {
+                    "BAKABALA": true,
+                    "TSHITADI": true,
+                    "TSHIASANGOMBE": true,
+                    "BAKUMBA": true,
+                    "MFUAMBA": true,
+                    "MUTONDO": true,
+                    "BAKUATSHENZE": true,
+                    "BAKUANJIBA": true,
+                    "MATADI BABUSONGO": true,
+                    "TSHISANGA MPATA": true,
+                    "BA - BUSONGO": true,
+                    "KAKUANJIBA": true,
+                    "BAKUA - LUBALA": true,
+                    "BENAKUBA": true,
+                    "KATSHIABALA": true
+                },
+                "chieftaincy": {
+                    "KAKOBA": true,
+                    "TSHITADI": true,
+                    "TSHIASANGOMBE": true,
+                    "LONSA": true,
+                    "MFUAMBA": true,
+                    "MUTONDO": true,
+                    "MBUNKU": true,
+                    "KATSHIABALA": true,
+                    "MATADI": true,
+                    "MUTETELA": true,
+                    "NDAMBI KAWAYA": true,
+                    "KAKUNGULA": true,
+                    "MWAZEMBA": true
+                },
+                "village": {
+                    "TSHONA": true,
+                    "TSHITADI": true,
+                    "TSHIASANGOMBE": true,
+                    "MFUAMBA": true,
+                    "MUTONDO": true,
+                    "MUNYANYA MUILA": true,
+                    "KATSHIABALA": true,
+                    "NSUANA": true,
+                    "MUTETELA": true,
+                    "KASUKU": true,
+                    "TSHIBANDAMA": true,
+                    "NDAMBI KAWAYA": true,
+                    "KALENDENDE": true,
+                    "MUENDELE": true,
+                    "KAKUNGULA": true
+                }
+            },
+            {
+                " name": "DJUGU",
+                "id": "DJUGU",
+                "province": {
+                    "ITURI"
+                },
+                "health_area": {
+                    "LOGA": true,
+                    "SALIBOKO": true,
+                    "KPARNGANZA": true,
+                    "KPALO": true,
+                    "LOGO / TAKPA": true,
+                    "BLUKWA MBI": true,
+                    "DRODRO": true,
+                    "BLUKWA ETAT": true,
+                    "UCHA": true
+                },
+                "health_zone": {
+                    "LITA": true,
+                    "DRODRO": true
+                },
+                "group": {
+                    "SALIBOKO": true,
+                    "PIMBO": true,
+                    "LOGA": true,
+                    "LOSSANDREMA": true,
+                    "BUKU": true,
+                    "DIROKPA": true
+                },
+                "chieftaincy": {
+                    "WALENDU / TATSI,": true,
+                    "BAHEMA NORD": true
+                },
+                "village": {
+                    "LOGA": true,
+                    "BUNA": true,
+                    "TSORO / GUKPA": true,
+                    "CHUMBU": true,
+                    "KPABU": true,
+                    "TSALAKA": true,
+                    "TCHE": true,
+                    "LOGO": true,
+                    "SESSETI": true,
+                    "KPALUBA": true,
+                    "JISSA": true,
+                    "LOVI": true,
+                    "CHUSSA": true,
+                    "DZATHI": true,
+                    "DRODRO": true,
+                    "TCHAU": true,
+                    "LITHO": true
+                }
+            },
+            {
+                " name": "MASISI",
+                "id": "MASISI",
+                "province": {
+                    " NORD - KIVU"
+                },
+                "health_area": {
+                    "BUSHANGA": true,
+                    "RUGARAMA": true,
+                    "KALEMBE": true
+                },
+                "health_zone": {
+                    "MWESO-TERRITOIRE": true
+                },
+                "group": {
+                    "BASHALI MOKOTO": true
+                },
+                "chieftaincy": {
+                    "BASHALI": true
+                },
+                "village": {
+                    "BUSHANGA 1": true,
+                    "BUSHANGA 2": true,
+                    "RUGARAMA": true,
+                    "KASHANJE": true,
+                    "KALEMBE": true,
+                    "KALEMO": true
+                }
+
+            },
+            {
+                " name": "KAMONIA",
+                "id": "KAMONIA",
+                "province": {
+                    " KASAI"
+                },
+                "health_area": {
+                    "TSHIMBINDA 1": true,
+                    "TSHINDEMBA": true,
+                    "MULAMBA TSHIONZA": true,
+                    "KATALUSHI": true,
+                    "MBAU": true,
+                    "KABAMBAYI": true,
+                    "TSHIMBINDA 2": true,
+                    "MAKUMBI": true,
+                    "INGA": true,
+                    "KATOKA": true,
+                },
+                "health_zone": {
+                    "KALONDA OUEST": true,
+                },
+                "group": {
+                    "BENA TSHIPANGA": true,
+                    "BENA TSHANGA": true,
+                    "KABUANGA TSHISENGE": true,
+                    "BAKUA MFUNYA": true,
+                    "TSHINVUNGU": true,
+                    "BENA KABANDA": true,
+                    "KABUMBA": true,
+                    "BAKUA TSHIPANGA": true
+                },
+                "chieftaincy": {
+                    "TSHIKAPA": true,
+                    "KASAI KABAMBAYI": true
+                },
+                "village": {
+                    "Ntumba Nsumbula": true,
+                    "Tshindemba": true,
+                    "Mulamba Tshionza": true,
+                    "Katalushi": true,
+                    "Mbuyi Tshiala": true,
+                    "Lukombo": true,
+                    "Kabuanga Tshinsenge": true,
+                    "Mwanza Mukala": true,
+                    "Mole": true,
+                    "Kangulube": true
+                }
+
+            },
+            {
+                "name": "KAMWESHA",
+                "id": "KAMWESHA",
+                "province": {
+                    "KASAI": true
+                },
+                "health_area": {
+                    "KAKUMBA": true,
+                    "KAMBA NKUVU": true
+                },
+                "health_zone": {
+                    "KAMWESHA": true
+                }
+            }
+        ]
+    },
+    {
+        "health_area": [{
+
+        }]
+    },
+    {
+        "health_zone": [{
+
+        }]
+    },
+    {
+        "group": [{
+
+        }]
+
+    },
+    {
+        "chieftaincy": [{
+
+        }]
+    },
+    {
+        "village": [{
+
+        }]
+    }
+]

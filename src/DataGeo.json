@@ -1,0 +1,458 @@
+[{
+    "Province": "KASAI CENTRAL",
+    "Territory": "KAZUMBA",
+    "Health_area": "KALOMBA",
+    "Health_zone": "KALOMBA",
+    "Group": "BAKABALA",
+    "Chieftaincy": "KAKOBA",
+    "Village": "TSHONA"
+  },
+  {
+    "Province": "KASAI CENTRAL",
+    "Territory": "KAZUMBA",
+    "Health_area": "TSHITADI",
+    "Health_zone": "KALOMBA",
+    "Group": "TSHITADI",
+    "Chieftaincy": "TSHITADI",
+    "Village": "TSHITADI"
+  },
+  {
+    "Province": "KASAI CENTRAL",
+    "Territory": "KAZUMBA",
+    "Health_area": "TSHIASANGOMBE",
+    "Health_zone": "KALOMBA",
+    "Group": "TSHIASANGOMBE",
+    "Chieftaincy": "TSHIASANGOMBE",
+    "Village": "TSHIASANGOMBE"
+  },
+  {
+    "Province": "KASAI CENTRAL",
+    "Territory": "KAZUMBA",
+    "Health_area": "KASANGA LUEBO",
+    "Health_zone": "KALOMBA",
+    "Group": "BAKUMBA",
+    "Chieftaincy": "LONSA",
+    "Village": "KAKUNGULA"
+  },
+  {
+    "Province": "KASAI CENTRAL",
+    "Territory": "KAZUMBA",
+    "Health_area": "MFUAMBA",
+    "Health_zone": "KALOMBA",
+    "Group": "MFUAMBA",
+    "Chieftaincy": "MFUAMBA",
+    "Village": "MFUAMBA"
+  },
+  {
+    "Province": "KASAI CENTRAL",
+    "Territory": "KAZUMBA",
+    "Health_area": "MUTONDO",
+    "Health_zone": "KALOMBA",
+    "Group": "MUTONDO",
+    "Chieftaincy": "MUTONDO",
+    "Village": "MUTONDO"
+  },
+  {
+    "Province": "KASAI CENTRAL",
+    "Territory": "KAZUMBA",
+    "Health_area": "MBUNKU",
+    "Health_zone": "KALOMBA",
+    "Group": "BAKUATSHENZE",
+    "Chieftaincy": "MBUNKU",
+    "Village": "MUNYANYA MUILA"
+  },
+  {
+    "Province": "KASAI CENTRAL",
+    "Territory": "KAZUMBA",
+    "Health_area": "KATSHIABALA",
+    "Health_zone": "KALOMBA",
+    "Group": "BAKUANJIBA",
+    "Chieftaincy": "KATSHIABALA",
+    "Village": "KATSHIABALA"
+  },
+  {
+    "Province": "KASAI CENTRAL",
+    "Territory": "KAZUMBA",
+    "Health_area": "NSUANA",
+    "Health_zone": "KALOMBA",
+    "Group": "MATADI BABUSONGO",
+    "Chieftaincy": "MATADI",
+    "Village": "NSUANA"
+  },
+  {
+    "Province": "KASAI CENTRAL",
+    "Territory": "KAZUMBA",
+    "Health_area": "MUTETELA",
+    "Health_zone": "KALOMBA",
+    "Group": "TSHISANGA MPATA",
+    "Chieftaincy": "MUTETELA",
+    "Village": "MUTETELA"
+  },
+  {
+    "Province": "KASAI CENTRAL",
+    "Territory": "KAZUMBA",
+    "Health_area": "KASUKU",
+    "Health_zone": "KALOMBA",
+    "Group": "BA-BUSONGO",
+    "Chieftaincy": "MATADI",
+    "Village": "KASUKU"
+  },
+  {
+    "Province": "KASAI CENTRAL",
+    "Territory": "KAZUMBA",
+    "Health_area": "TSHIBANDAMA",
+    "Health_zone": "KALOMBA",
+    "Group": "KAKUANJIBA",
+    "Chieftaincy": "KATSHIABALA",
+    "Village": "TSHIBANDAMA"
+  },
+  {
+    "Province": "KASAI CENTRAL",
+    "Territory": "KAZUMBA",
+    "Health_area": "AIGLE BADDY",
+    "Health_zone": "KALOMBA",
+    "Group": "BAKUA-LUBALA",
+    "Chieftaincy": "NDAMBI KAWAYA",
+    "Village": "NDAMBI KAWAYA"
+  },
+  {
+    "Province": "KASAI CENTRAL",
+    "Territory": "KAZUMBA",
+    "Health_area": "KALENDENDE",
+    "Health_zone": "KALOMBA",
+    "Group": "BENAKUBA",
+    "Chieftaincy": "KAKUNGULA",
+    "Village": "KALENDENDE"
+  },
+  {
+    "Province": "KASAI CENTRAL",
+    "Territory": "KAZUMBA",
+    "Health_area": "MUENDELE",
+    "Health_zone": "KALOMBA",
+    "Group": "KATSHIABALA",
+    "Chieftaincy": "MWAZEMBA",
+    "Village": "MUENDELE"
+  },
+  {
+    "Province": "KASAI CENTRAL",
+    "Territory": "KAZUMBA",
+    "Health_area": "KAKUNGULA",
+    "Health_zone": "KALOMBA",
+    "Group": "BENAKUBA",
+    "Chieftaincy": "KAKUNGULA",
+    "Village": "KAKUNGULA"
+  },
+  {
+    "Province": "ITURI",
+    "Territory": "DJUGU",
+    "Health_area": "LOGA",
+    "Health_zone": "LITA",
+    "Group": "LOGA",
+    "Chieftaincy": "WALENDU/TATSI",
+    "Village": "LOGA"
+  },
+  {
+    "Province": "ITURI",
+    "Territory": "DJUGU",
+    "Health_area": "SALIBOKO",
+    "Health_zone": "DRODRO",
+    "Group": "SALIBOKO",
+    "Chieftaincy": "WALENDU/TATSI",
+    "Village": "BUNA"
+  },
+  {
+    "Province": "ITURI",
+    "Territory": "DJUGU",
+    "Health_area": "UCHA",
+    "Health_zone": "DRODRO",
+    "Group": "PIMBO",
+    "Chieftaincy": "WALENDU/DJATSI",
+    "Village": "TSORO/GUKPA"
+  },
+  {
+    "Province": "ITURI",
+    "Territory": "DJUGU",
+    "Health_area": "KPARNGANZA",
+    "Health_zone": "LITA",
+    "Group": "LOGA",
+    "Chieftaincy": "WALENDU/TATSI",
+    "Village": "CHUMBU"
+  },
+  {
+    "Province": "ITURI",
+    "Territory": "DJUGU",
+    "Health_area": "KPARNGANZA",
+    "Health_zone": "LITA",
+    "Group": "LOGA",
+    "Chieftaincy": "WALENDU/TATSI",
+    "Village": "KPABU"
+  },
+  {
+    "Province": "ITURI",
+    "Territory": "DJUGU",
+    "Health_area": "KPARNGANZA",
+    "Health_zone": "LITA",
+    "Group": "LOGA",
+    "Chieftaincy": "WALENDU/TATSI",
+    "Village": "TSALAKA"
+  },
+  {
+    "Province": "ITURI",
+    "Territory": "DJUGU",
+    "Health_area": "KPALO",
+    "Health_zone": "DRODRO",
+    "Group": "LOSSANDREMA",
+    "Chieftaincy": "BAHEMA NORD",
+    "Village": "TCHE"
+  },
+  {
+    "Province": "ITURI",
+    "Territory": "DJUGU",
+    "Health_area": "LOGO/TAKPA",
+    "Health_zone": "DRODRO",
+    "Group": "LOSSANDREMA",
+    "Chieftaincy": "BAHEMA NORD",
+    "Village": "LOGO"
+  },
+  {
+    "Province": "ITURI",
+    "Territory": "DJUGU",
+    "Health_area": "BLUKWA MBI",
+    "Health_zone": "DRODRO",
+    "Group": "BUKU",
+    "Chieftaincy": "BAHEMA NORD",
+    "Village": "SESSETI"
+  },
+  {
+    "Province": "ITURI",
+    "Territory": "DJUGU",
+    "Health_area": "DRODRO",
+    "Health_zone": "DRODRO",
+    "Group": "BUKU",
+    "Chieftaincy": "BAHEMA NORD",
+    "Village": "KPALUBA"
+  },
+  {
+    "Province": "ITURI",
+    "Territory": "DJUGU",
+    "Health_area": "DRODRO",
+    "Health_zone": "DRODRO",
+    "Group": "BUKU",
+    "Chieftaincy": "BAHEMA NORD",
+    "Village": "JISSA"
+  },
+  {
+    "Province": "ITURI",
+    "Territory": "DJUGU",
+    "Health_area": "DRODRO",
+    "Health_zone": "DRODRO",
+    "Group": "BUKU",
+    "Chieftaincy": "BAHEMA NORD",
+    "Village": "LOVI"
+  },
+  {
+    "Province": "ITURI",
+    "Territory": "DJUGU",
+    "Health_area": "BLUKWA ETAT",
+    "Health_zone": "DRODRO",
+    "Group": "BUKU",
+    "Chieftaincy": "BAHEMA NORD",
+    "Village": "CHUSSA"
+  },
+  {
+    "Province": "ITURI",
+    "Territory": "DJUGU",
+    "Health_area": "DRODRO",
+    "Health_zone": "DRODRO",
+    "Group": "BUKU",
+    "Chieftaincy": "BAHEMA NORD",
+    "Village": "DZATHI"
+  },
+  {
+    "Province": "ITURI",
+    "Territory": "DJUGU",
+    "Health_area": "DRODRO",
+    "Health_zone": "DRODRO",
+    "Group": "BUKU",
+    "Chieftaincy": "BAHEMA NORD",
+    "Village": "DRODRO"
+  },
+  {
+    "Province": "ITURI",
+    "Territory": "DJUGU",
+    "Health_area": "UCHA",
+    "Health_zone": "DRODRO",
+    "Group": "DIROKPA",
+    "Chieftaincy": "BAHEMA NORD",
+    "Village": "TCHAU"
+  },
+  {
+    "Province": "ITURI",
+    "Territory": "DJUGU",
+    "Health_area": "UCHA",
+    "Health_zone": "DRODRO",
+    "Group": "DIROKPA",
+    "Chieftaincy": "BAHEMA NORD",
+    "Village": "LITHO"
+  },
+  {
+    "Province": "NORD-KIVU",
+    "Territory": "MASISI",
+    "Health_area": "BUSHANGA",
+    "Health_zone": "MWESO-TERRITOIRE",
+    "Group": "BASHALI MOKOTO",
+    "Chieftaincy": "BASHALI",
+    "Village": "BUSHANGA 1"
+  },
+  {
+    "Province": "NORD-KIVU",
+    "Territory": "MASISI",
+    "Health_area": "RUGARAMA",
+    "Health_zone": "MWESO",
+    "Group": "BASHALI MOKOTO",
+    "Chieftaincy": "BASHALI",
+    "Village": "BUSHANGA 2"
+  },
+  {
+    "Province": "NORD-KIVU",
+    "Territory": "MASISI",
+    "Health_area": "RUGARAMA",
+    "Health_zone": "MWESO",
+    "Group": "BASHALI MOKOTO",
+    "Chieftaincy": "BASHALI",
+    "Village": "RUGARAMA"
+  },
+  {
+    "Province": "NORD-KIVU",
+    "Territory": "MASISI",
+    "Health_area": "RUGARAMA",
+    "Health_zone": "MWESO",
+    "Group": "BASHALI MOKOTO",
+    "Chieftaincy": "BASHALI",
+    "Village": "KASHANJE"
+  },
+  {
+    "Province": "NORD-KIVU",
+    "Territory": "MASISI",
+    "Health_area": "KALEMBE",
+    "Health_zone": "MWESO",
+    "Group": "BASHALI MOKOTO",
+    "Chieftaincy": "BASHALI",
+    "Village": "KALEMBE"
+  },
+  {
+    "Province": "NORD-KIVU",
+    "Territory": "MASISI",
+    "Health_area": "KALEMBE",
+    "Health_zone": "MWESO",
+    "Group": "BASHALI MOKOTO",
+    "Chieftaincy": "BASHALI",
+    "Village": "KALEMO"
+  },
+  {
+    "Province": "KASAI ",
+    "Territory": "KAMONIA",
+    "Health_area": "TSHIMBINDA 1",
+    "Health_zone": "KALONDA OUEST",
+    "Group": "KABUANGA TSHISENGE",
+    "Chieftaincy": "TSHIKAPA",
+    "Village": "Ntumba Nsumbula"
+  },
+  {
+    "Province": "KASAI ",
+    "Territory": "KAMONIA",
+    "Health_area": "TSHINDEMBA",
+    "Health_zone": "KALONDA OUEST",
+    "Group": "BENA TSHIPANGA",
+    "Chieftaincy": "KASAI KABAMBAYI",
+    "Village": "Tshindemba"
+  },
+  {
+    "Province": "KASAI ",
+    "Territory": "KAMONIA",
+    "Health_area": "MULAMBA TSHIONZA",
+    "Health_zone": "KALONDA OUEST",
+    "Group": "BENA TSHANGA",
+    "Chieftaincy": "KASAI KABAMBAYI",
+    "Village": "Mulamba Tshionza"
+  },
+  {
+    "Province": "KASAI ",
+    "Territory": "KAMONIA",
+    "Health_area": "KATALUSHI",
+    "Health_zone": "KALONDA OUEST",
+    "Group": "BENA TSHANGA",
+    "Chieftaincy": "KASAI KABAMBAYI",
+    "Village": "Katalushi"
+  },
+  {
+    "Province": "KASAI",
+    "Territory": "KAMONIA",
+    "Health_area": "MBAU",
+    "Health_zone": "KALONDA OUEST",
+    "Group": "KABUANGA TSHISENGE",
+    "Chieftaincy": "KASAI KABAMBAYI",
+    "Village": "Mbuyi Tshiala"
+  },
+  {
+    "Province": "KASAI",
+    "Territory": "KAMONIA",
+    "Health_area": "KABAMBAYI",
+    "Health_zone": "KALONDA OUEST",
+    "Group": "BAKUA MFUNYA",
+    "Chieftaincy": "KASAI KABAMBAYI",
+    "Village": "Lukombo"
+  },
+  {
+    "Province": "KASAI",
+    "Territory": "KAMONIA",
+    "Health_area": "TSHIMBINDA 2",
+    "Health_zone": "KALONDA OUEST",
+    "Group": "TSHINVUNGU",
+    "Chieftaincy": "KASAI KABAMBAYI",
+    "Village": "Kabuanga Tshinsenge"
+  },
+  {
+    "Province": "KASAI",
+    "Territory": "KAMONIA",
+    "Health_area": "MAKUMBI",
+    "Health_zone": "KALONDA OUEST",
+    "Group": "BENA KABANDA",
+    "Chieftaincy": "KASAI KABAMBAYI",
+    "Village": "Mwanza Mukala"
+  },
+  {
+    "Province": "KASAI",
+    "Territory": "KAMONIA",
+    "Health_area": "INGA",
+    "Health_zone": "KALONDA OUEST",
+    "Group": "KABUMBA",
+    "Chieftaincy": "KASAI KABAMBAYI",
+    "Village": "Mole"
+  },
+  {
+    "Province": "KASAI",
+    "Territory": "KAMONIA",
+    "Health_area": "KATOKA",
+    "Health_zone": "KALONDA OUEST",
+    "Group": "BAKUA TSHIPANGA",
+    "Chieftaincy": "KASAI KABAMBAYI",
+    "Village": "Kangulube"
+  },
+  {
+    "Province": "KASAI",
+    "Territory": "KAMWESHA",
+    "Health_area": "KAKUMBA",
+    "Health_zone": "KAMWESHA",
+    "FIELD26": ""
+  },
+  {
+    "Province": "KASAI",
+    "Territory": "KAMWESHA",
+    "Health_area": "KAMBA NKUVU",
+    "Health_zone": "KAMWESHA",
+    "Group": "",
+    "Chieftaincy": "",
+    "Village": ""
+  }
+]
