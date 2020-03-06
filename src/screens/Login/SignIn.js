@@ -28,6 +28,8 @@ import {
 } from 'react-native-responsive-screen';
 import NetInfo from '@react-native-community/netinfo';
 import {getActivityFoodData, projectData} from '../../lib/sync';
+// var bcrypt = require('bcryptjs');
+// var bcrypt = dcodeIO.bcrypt;
 
 export default class SignIn extends Component {
   constructor(props) {
@@ -38,6 +40,7 @@ export default class SignIn extends Component {
       errorInput: false,
       isConnectedToWifi: Boolean,
       refreshing: false,
+      supervisor: '',
     };
     this.isAlreadyConnected();
     this.onChange = this.onChange.bind(this);
@@ -52,8 +55,24 @@ export default class SignIn extends Component {
 
   componentDidMount() {
     this.isConnectedToWifi();
+    let password = 'test1234';
     this.verifyEmailAndPassword(this.state.email, this.state.password);
   }
+
+  //   hashPassword = ()=>{
+  //  var salt = bcrypt.genSaltSync(10, (err, salt) => {
+  //       bcrypt.hash('test1234', salt, (err, hash) => {
+  //         password = hash;
+  //       });
+  //     });
+  //     auth.createUserWithEmailAndPassword('test9@test.com', 'testtest9');
+  //     auth.signInWithEmailAndPassword('test1@test.com', 'testtest1');
+  //     console.log(auth.currentUser.uid, 'current user');
+  //     var hash = bcrypt.hashSync('B4c0//', salt);
+  //     database.ref('acf_owner').push({
+  //       password: hash,
+  //     });
+  //   }
 
   isConnectedToWifi = () => {
     NetInfo.fetch().then(state => {
@@ -106,80 +125,61 @@ export default class SignIn extends Component {
     });
   };
 
-  userConnection = async (email, password) => {
-    if (email === 'Romain@warren.com' && password === 'romainwarren') {
-      try {
-        await auth.signInWithEmailAndPassword(email, password);
-        await AsyncStorage.setItem('userLogin', email);
-        await AsyncStorage.setItem('supervisor', 'supervisor');
-        await AsyncStorage.setItem('idOfAcfOwner', auth.currentUser.uid);
-        this.props.navigation.navigate('ProjectScreen');
-        database
-          .ref('/acf_owner')
-          .child(auth.currentUser.uid)
-          .set({
-            email: this.state.email,
-            password: this.state.password,
-            supervisor: true,
-            health_area: ['Mweso-Territoire', 'Kalonda Ouest'],
-          })
-          .then(value => {
-            getActivityFoodData(['Mweso-Territoire', 'Kalonda Ouest']);
-            projectData(auth.currentUser.uid);
+  userConnection = () => {
+    this.isUserOnDB();
+  };
+
+  isUserOnDB = () => {
+    database.ref('acf_owner').once('value', snap => {
+      let snapshot = snap.val();
+      let sizeOfSnapshot = Object.keys(snapshot).length;
+      let snapshotArray = Object.values(snapshot);
+      let allEmail = [];
+
+      for (let i = 0; i < sizeOfSnapshot; i++) {
+        if (
+          snapshotArray[i].email.toLowerCase() ===
+            this.state.email.toLowerCase() &&
+          snapshotArray[i].password === this.state.password
+        ) {
+          this.setState({
+            errorInput: false,
           });
-      } catch (err) {
-        console.log(err);
-      }
-    } else if (email === 'Walid@warren.com' && password === 'walidwarren') {
-      try {
-        await auth.signInWithEmailAndPassword(email, password);
-        await AsyncStorage.setItem('userLogin', email);
-        await AsyncStorage.setItem('supervisor', 'none');
-        await AsyncStorage.setItem('idOfAcfOwner', auth.currentUser.uid);
-        this.props.navigation.navigate('ProjectScreen');
-        database
-          .ref('/acf_owner')
-          .child(auth.currentUser.uid)
-          .set({
-            email: this.state.email,
-            password: this.state.password,
-            supervisor: false,
-            health_area: ['Kalomba', 'Drodro'],
-          })
-          .then(value => {
-            getActivityFoodData(['Kalomba', 'Drodro']);
-            projectData(auth.currentUser.uid);
+          this.connectDataOfUser(snapshotArray[i].supervisor);
+        } else {
+          this.setState({
+            errorInput: true,
           });
-      } catch (err) {
-        console.log(err);
+        }
       }
-    } else if (email === 'Jalal@warren.com' && password === 'jalalwarren') {
-      try {
-        await auth.signInWithEmailAndPassword(email, password);
-        await AsyncStorage.setItem('userLogin', email);
-        await AsyncStorage.setItem('supervisor', 'none');
-        await AsyncStorage.setItem('idOfAcfOwner', auth.currentUser.uid);
-        this.props.navigation.navigate('ProjectScreen');
-        database
-          .ref('/acf_owner')
-          .child(auth.currentUser.uid)
-          .set({
-            email: this.state.email,
-            password: this.state.password,
-            supervisor: false,
-            health_area: ['Mweso-Territoire', 'Kalonda Ouest'],
-          })
-          .then(value => {
-            getActivityFoodData(['Mweso-Territoire', 'Kalonda Ouest']);
-            projectData(auth.currentUser.uid);
-          });
-      } catch (err) {
-        console.log(err);
-      }
-    } else {
-      this.setState({
-        errorInput: true,
-      });
+    });
+  };
+
+  connectDataOfUser = async supervisor => {
+    try {
+      await auth.signInWithEmailAndPassword(
+        this.state.email,
+        this.state.password,
+      );
+      await AsyncStorage.setItem('userLogin', this.state.email);
+      await AsyncStorage.setItem('supervisor', supervisor ? 'supervisor' : '');
+      await AsyncStorage.setItem('idOfAcfOwner', auth.currentUser.uid);
+      this.props.navigation.navigate('ProjectScreen');
+      // database
+      //   .ref('/acf_owner')
+      //   .child(auth.currentUser.uid)
+      //   .set({
+      //     email: this.state.email,
+      //     password: this.state.password,
+      //     supervisor: true,
+      //     health_area: ['Mweso-Territoire', 'Kalonda Ouest'],
+      //   })
+      //   .then(value => {
+      //     getActivityFoodData(['Mweso-Territoire', 'Kalonda Ouest']);
+      //     projectData(auth.currentUser.uid);
+      //   });
+    } catch (err) {
+      console.log(err);
     }
   };
 
@@ -244,6 +244,9 @@ export default class SignIn extends Component {
     const {email, password} = this.state;
     return (
       <View style={styles.container}>
+        {console.log(this.state.errorInput, 'error input')}
+        {console.log(this.state.email, 'email')}
+        {console.log(this.state.password, 'password')}
         <ScrollView
           refreshControl={
             <RefreshControl
