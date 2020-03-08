@@ -145,7 +145,10 @@ export default class SignIn extends Component {
           this.setState({
             errorInput: false,
           });
-          this.connectDataOfUser(snapshotArray[i].supervisor);
+          this.connectDataOfUser(
+            snapshotArray[i].supervisor,
+            snapshotArray[i].email,
+          );
         } else {
           this.setState({
             errorInput: true,
@@ -155,13 +158,13 @@ export default class SignIn extends Component {
     });
   };
 
-  connectDataOfUser = async supervisor => {
+  connectDataOfUser = async (supervisor, email) => {
     try {
       await auth.signInWithEmailAndPassword(
         this.state.email,
         this.state.password,
       );
-      await AsyncStorage.setItem('userLogin', this.state.email);
+      await AsyncStorage.setItem('userLogin', email);
       await AsyncStorage.setItem('supervisor', supervisor ? 'supervisor' : '');
       await AsyncStorage.setItem('idOfAcfOwner', auth.currentUser.uid);
       this.props.navigation.navigate('ProjectScreen');
