@@ -151,7 +151,7 @@ export default class EditDataAcceptation extends Component {
           membersFamily,
           food_activity,
           qrCodeID,
-          membersID,
+          membersID, //for now undefined
         );
       } else {
         await AsyncStorage.setItem('familyData', JSON.stringify(familyData));

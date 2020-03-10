@@ -16,10 +16,14 @@ import BtnFooter from '../../components/atoms/btn/BtnFooter';
 import {ScrollView} from 'react-native-gesture-handler';
 import Card from '../../components/atoms/card/Card';
 import {n} from '../../Helpers'; //normalize
-import {getActivityFoodData, editFamilyFoodActivity} from '../../lib/sync';
+import {
+  getActivityFoodData,
+  editFamilyFoodActivity,
+  editMember,
+} from '../../lib/sync';
 import {database, auth} from '../../../ConfigFirebase';
 import NetInfo from '@react-native-community/netinfo';
-import {editFamilyFood} from '../../lib/sync';
+import {editFamilyFood, editMemberFood} from '../../lib/sync';
 
 export default class EditFamilyFoodActivity extends Component {
   constructor(props) {
@@ -95,17 +99,25 @@ export default class EditFamilyFoodActivity extends Component {
         id,
         ...this.state.food[index],
       }));
-    editFamilyFood(
-      this.props.navigation.state.params.familyID,
-      food_activity_object,
-    );
+
+    console.log(this.props.navigation.state.params.from, 'blabla');
+    this.props.navigation.state.params.from === 'family'
+      ? editFamilyFood(
+          this.props.navigation.state.params.familyID,
+          food_activity_object,
+        )
+      : editMemberFood(
+          this.props.navigation.state.params.membersID,
+          food_activity_object,
+        );
+
     this.props.navigation.navigate('ScanResult', {
       familyData,
       familyID: this.props.navigation?.state?.params?.familyID,
       membersFamily: membersFamily,
       food_activity: food_activity_object,
       qrCodeID: this.props.navigation?.state?.params?.qrCodeID,
-      membersID: this.props.navigation?.state?.params?.membersID,
+      membersID: this.props.navigation?.state?.params?.membersID, // for now undefined
     });
   };
 

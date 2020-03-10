@@ -57,7 +57,7 @@ export default class EditMembers extends Component {
 
   getDataMember = () => {
     const {membersID} = this.props.navigation.state.params;
-    console.log("memmmmmmmbbbbbeeerrsssssss",membersID)
+    console.log('memmmmmmmbbbbbeeerrsssssss', membersID);
     database.ref('members/' + membersID).once('value', snap => {
       let snapshot = snap.val();
       let dato = snapshot.date;
@@ -260,6 +260,10 @@ export default class EditMembers extends Component {
         qrCodeID: this.props.navigation.state.params.qrCodeID,
         memberID: this.props.navigation.state.params.membersID,
       });
+      console.log(
+        this.props.navigation.state.params.membersID,
+        'members IDDDDDDDDD',
+      );
       this.setState(initialState);
       this.allStateEmpty();
       return;

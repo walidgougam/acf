@@ -94,6 +94,7 @@ export default class FoodActivity extends Component {
         id,
         ...this.state.food[index],
       }));
+    console.log(food_activity_object, 'food activity object');
     this.props.navigation.navigate('DataAcceptation', {
       membersFamily,
       familyData,

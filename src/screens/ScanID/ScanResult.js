@@ -28,6 +28,7 @@ export default class ScanResult extends Component {
       familyProject: '',
       familyID: '-M0X5YXtfjwmLACIu5n7', //supprimer la valeur de cette family ID
       familyActivity: [],
+      foodActivity: [],
       type: '',
       healthArea: '',
       group: '',
@@ -65,18 +66,6 @@ export default class ScanResult extends Component {
       isLoading: false,
     });
   };
-
-  // getFamilyData = () => {
-  //   database
-  //     .ref('family')
-  //     .child(this.state.familyID)
-  //     .once('value', snap => {
-  //       let snapshot= snap.val();
-  //      this.setState({
-  //        familyData:...snapshot
-  //      })
-  //     });
-  // };
 
   getFamilyProject = async qrCodeID => {
     await database.ref('family').once('value', snap => {
@@ -128,18 +117,27 @@ export default class ScanResult extends Component {
     await database.ref('members').once('value', snap => {
       let _name = '';
       let _familyID = '';
+      let _foodActivity = [];
       let snapshot = snap.val();
       let newSnapshot = Object.values(snapshot);
       for (let i = 0; i < newSnapshot.length; i++) {
         if (newSnapshot[i].familyUuid === qrCodeID) {
+          console.log(newSnapshot[i], 'newsnapshot iiii');
           _name = newSnapshot[i].name;
           _familyID = newSnapshot[i].familyID;
+          _foodActivity.push({
+            food: [...newSnapshot[i].foodActivity],
+            firstName: newSnapshot[i].first_name,
+          });
         }
       }
+      console.log(_foodActivity, 'food activity on get member data');
       this.setState({
         name: _name,
         familyID: _familyID,
+        foodActivity: _foodActivity,
       });
+      console.log(_foodActivity, 'food activity');
     });
   };
 
@@ -227,8 +225,8 @@ export default class ScanResult extends Component {
     return (
       <View style={[styles.white_bloc_text, {justifyContent: 'center'}]}>
         <Text>
-          {this.state.nameOfFamily} is not registered to any awareness program
-          to food practices
+          {this.state.name} is not registered to any awareness program to food
+          practices
         </Text>
       </View>
     );
@@ -266,15 +264,22 @@ export default class ScanResult extends Component {
             </Text>
           </View>
           <View style={styles.wrapper_header_addActivity}>
-            <TouchableOpacity style={styles.btn_activity}>
+            <TouchableOpacity
+              style={styles.btn_activity}
+              onPress={() => {
+                this.props.navigation.navigate('ListMembersFoodActivity', {
+                  familyID: this.state.familyID,
+                  qrCodeID: this.props.navigation.state.params.qrCodeID,
+                });
+              }}>
               <Text style={styles.text_activity}>Add individual activity</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.btn_activity}
               onPress={() => {
-                console.log('edit familly food activity');
                 this.props.navigation.navigate('EditFamilyFoodActivity', {
                   familyID: this.state.familyID,
+                  from: 'family',
                 });
               }}>
               <Text style={styles.text_activity}>Add family activity</Text>
@@ -304,7 +309,25 @@ export default class ScanResult extends Component {
           </View>
         </View>
         {this.state.btnIndividual ? (
-          this.renderNoActivity()
+          this.state.foodActivity.length > 0 ? (
+            <View style={styles.white_bloc_text}>
+              <ScrollView showsVerticalScrollIndicator={false}>
+                {this.state.foodActivity.map((activity, index) => {
+                  return (
+                    <ActivityCard
+                      type={this.state.type}
+                      firstName={activity.firstName}
+                      familyProject={this.state.familyProject}
+                      detail={activity.food.map(e => e.detail)}
+                      title={activity.food.map(e => e.title)}
+                    />
+                  );
+                })}
+              </ScrollView>
+            </View>
+          ) : (
+            this.renderNoActivity()
+          )
         ) : this.state.familyActivity.length > 0 ? (
           <View style={styles.white_bloc_text}>
             <ScrollView showsVerticalScrollIndicator={false}>

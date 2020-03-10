@@ -24,7 +24,6 @@ export default class ActivityCard extends Component {
           ) : (
             <Image source={image.drug} style={{width: 20, height: 23}} />
           )}
-
           <View
             style={{
               marginLeft: n(11),
@@ -50,16 +49,17 @@ export default class ActivityCard extends Component {
               }}>
               {this.props.detail}
             </Text>
-            <Text>
-              {' '}
-              Supported since {moment(this.props.createdAt).format('MMM Do YY')}
-            </Text>
+            <Text>{moment(this.props.createdAt).format('MMM Do YY')}</Text>
             {/* <Text> Accompagnying: parent 2 </Text> */}
           </View>
         </View>
-        {/* <TouchableOpacity style={[styles.btn, {elevation: 2}]}>
-          <Text style={[styles.text_view]}> View </Text>
-        </TouchableOpacity> */}
+        {this.props.firstName ? (
+          <TouchableOpacity style={[styles.btn, {elevation: 2}]}>
+            <Text style={styles.text_view}>{this.props.firstName}</Text>
+          </TouchableOpacity>
+        ) : (
+          <Text></Text>
+        )}
       </View>
     );
   }

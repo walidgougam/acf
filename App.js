@@ -1,7 +1,14 @@
-import React, {Component} from 'react';
-import {createAppContainer, createSwitchNavigator} from 'react-navigation';
+import React, {
+  Component
+} from 'react';
+import {
+  createAppContainer,
+  createSwitchNavigator
+} from 'react-navigation';
 
-import {createStackNavigator} from 'react-navigation-stack';
+import {
+  createStackNavigator
+} from 'react-navigation-stack';
 import SplashScreen from './src/screens/SplashScreen/Splash';
 import SignIn from './src/screens/Login/SignIn';
 import ProjectScreen from './src/screens/Login/SelectProject';
@@ -15,6 +22,7 @@ import FamilyMembers from './src/screens/AddFamily/FamilyMembers';
 import DataAcceptation from './src/screens/AddFamily/DataAcceptation';
 import FamilyCard from './src/screens/AddFamily/FamilyCard';
 import ListMembers from './src/screens/EditFamily/ListMembers';
+import ListMembersFoodActivity from './src/screens/EditFamily/ListMembersFoodActivity';
 import EditFamilyFoodActivity from './src/screens/EditFamily/EditFamilyFoodActivity';
 import EditMainInformation from './src/screens/EditFamily/EditMainInformation';
 import EditMembers from './src/screens/EditFamily/EditMembers';
@@ -43,8 +51,7 @@ const Splash = createStackNavigator({
     },
   },
 });
-const AuthStack = createStackNavigator(
-  {
+const AuthStack = createStackNavigator({
     SignIn: {
       screen: SignIn,
       // navigationOptions: {
@@ -95,6 +102,7 @@ const HomeStack = createStackNavigator({
   ScanResult: ScanResult,
   SearchIdByNumber: SearchIdByNumber,
   EditFamilyFoodActivity: EditFamilyFoodActivity,
+  ListMembersFoodActivity: ListMembersFoodActivity,
 });
 
 const FamilyStack = createStackNavigator({
@@ -124,21 +132,18 @@ const SupervisorStack = createStackNavigator({
   FoodActivity3: FoodActivity3,
 });
 
-const AppNavigation = createSwitchNavigator(
-  {
-    NewFamilyStack: NewFamilyStack,
-    Splash: Splash,
-    Auth: AuthStack,
-    Home: HomeStack,
-    Family: FamilyStack,
-    Family2: FamilyStack2,
-    Supervisor: SupervisorStack,
-    Health: HealthStack,
-  },
-  {
-    initialRouteName: 'Home', // normalement on met splash ici, mais pour faire des essai je change
-  },
-);
+const AppNavigation = createSwitchNavigator({
+  NewFamilyStack: NewFamilyStack,
+  Splash: Splash,
+  Auth: AuthStack,
+  Home: HomeStack,
+  Family: FamilyStack,
+  Family2: FamilyStack2,
+  Supervisor: SupervisorStack,
+  Health: HealthStack,
+}, {
+  initialRouteName: 'Home', // normalement on met splash ici, mais pour faire des essai je change
+}, );
 
 const AppContainer = createAppContainer(AppNavigation);
 
@@ -149,6 +154,6 @@ export default class App extends Component {
   }
 
   render() {
-    return <AppContainer />;
+    return <AppContainer / > ;
   }
 }

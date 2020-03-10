@@ -87,7 +87,6 @@ export default class EditDataAcceptation extends Component {
     let {membersFamily, familyData} = {
       ...this.props.navigation.state.params,
     };
-    console.log(familyData, 'family data de edit food activity');
 
     const food_activity_object = this.state.foodKey
       .filter((key, index) => this.state.chekedActivities[index])
@@ -101,8 +100,12 @@ export default class EditDataAcceptation extends Component {
       membersFamily: membersFamily,
       food_activity: food_activity_object,
       qrCodeID: this.props.navigation.state.params.qrCodeID,
-      membersID: this.props.navigation.state.params.membersID,
+      membersID: this.props.navigation.state.params.membersID, // for now undefined
     });
+    console.log(
+      this.props.navigation.state.params.membersID,
+      'members id edit food activity',
+    );
   };
 
   // fonction a reecrire

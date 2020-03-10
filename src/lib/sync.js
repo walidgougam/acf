@@ -1,5 +1,11 @@
-import {AsyncStorage} from 'react-native';
-import {database, auth, f} from '../../ConfigFirebase';
+import {
+  AsyncStorage
+} from 'react-native';
+import {
+  database,
+  auth,
+  f
+} from '../../ConfigFirebase';
 
 const addNewFamily = async (_familyData, _membersFamily, _food_activity) => {
   try {
@@ -12,14 +18,18 @@ const addNewFamily = async (_familyData, _membersFamily, _food_activity) => {
     //membersFamily = JSON.parse(membersFamily)
     let food_activity =
       _food_activity || JSON.parse(await AsyncStorage.getItem('food_activity'));
-    let foodActivitiesId = food_activity ? food_activity.map(({id}) => id) : [];
-    let foodActivityInfos = food_activity
-      ? food_activity.map(({title, detail}) => ({
-          title,
-          detail,
-          createdAt: f.database.ServerValue.TIMESTAMP,
-        }))
-      : [];
+    let foodActivitiesId = food_activity ? food_activity.map(({
+      id
+    }) => id) : [];
+    let foodActivityInfos = food_activity ?
+      food_activity.map(({
+        title,
+        detail
+      }) => ({
+        title,
+        detail,
+        createdAt: f.database.ServerValue.TIMESTAMP,
+      })) : [];
     if (familyData && membersFamily && food_activity) {
       foodActivitiesId.createdAt = f.database.ServerValue.TIMESTAMP;
       database
@@ -28,14 +38,17 @@ const addNewFamily = async (_familyData, _membersFamily, _food_activity) => {
           ...familyData,
           food_activity: foodActivitiesId,
         })
-        .once('value', function(snapshot) {
+        .once('value', function (snapshot) {
           membersFamily.map(member => {
             member.familyID = snapshot.key;
             member.familyUuid = familyData.uuid;
             // member.food_activity = foodActivitiesId
             database
               .ref('members')
-              .push(member)
+              .push({
+                ...member,
+                foodActivity: foodActivityInfos
+              })
               .once('value', async _member => {
                 memebersID.push(_member.key);
                 await database
@@ -87,13 +100,30 @@ const editMember = async (
   }
 };
 
-const editFamilyFood = async (familyID, foodActivitiesId) => {
+const editFamilyFood = async (familyID, foodActivity) => {
+  console.log(familyID, 'family id ');
+  let foodActivitiesId = foodActivity ? foodActivity.map(({
+    id
+  }) => id) : [];
   try {
     database
-      .ref('family')
-      .child(familyID / +'food_activity')
+      .ref('family/' + familyID)
+      .child('food_activity')
       .set({
-        foodActivitiesId,
+        ...foodActivitiesId,
+      });
+  } catch {
+    console.error(e);
+  }
+};
+
+const editMemberFood = (memberID, foodActivity) => {
+  try {
+    database
+      .ref('members/' + memberID)
+      .child('foodActivity')
+      .set({
+        ...foodActivity,
       });
   } catch {
     console.error(e);
@@ -121,13 +151,17 @@ const editFamily = async (
       _food_activity || JSON.parse(await AsyncStorage.getItem('food_activity'));
     let qrCodeID = _qrCodeID;
 
-    let foodActivitiesId = food_activity ? food_activity.map(({id}) => id) : [];
-    let foodActivityInfos = food_activity
-      ? food_activity.map(({title, detail}) => ({
-          title,
-          detail,
-        }))
-      : [];
+    let foodActivitiesId = food_activity ? food_activity.map(({
+      id
+    }) => id) : [];
+    let foodActivityInfos = food_activity ?
+      food_activity.map(({
+        title,
+        detail
+      }) => ({
+        title,
+        detail,
+      })) : [];
     // if (familyData && qrCodeID&& membersFamily) {
     console.log('je rentre dans le if de sync');
     console.log(familyId, 'family id de sync ');
@@ -166,10 +200,10 @@ const getActivityFoodData = async (health_area, callback) => {
   database.ref('health_area').once('value', async snap => {
     healthAreaOfAcfOwnerObjects = [].concat(
       ...Object.values(snap.val())
-        .filter(_area => {
-          return healthAreaOfAcfOwner.indexOf(_area.name) > -1;
-        })
-        .map(obj => obj.food),
+      .filter(_area => {
+        return healthAreaOfAcfOwner.indexOf(_area.name) > -1;
+      })
+      .map(obj => obj.food),
     );
 
     const getData = async () => {
@@ -229,7 +263,7 @@ const projectData = async (idAcfOwner, callback) => {
               .child(_projectsId)
               .once('value');
           });
-          Promise.all(promises).then(async function(values) {
+          Promise.all(promises).then(async function (values) {
             const resultProject = values.map(value => value.val());
             await AsyncStorage.setItem(
               'projectArea',
@@ -251,4 +285,5 @@ export {
   projectData,
   editMember,
   editFamilyFood,
+  editMemberFood,
 };
