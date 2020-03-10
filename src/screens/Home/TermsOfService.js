@@ -30,7 +30,7 @@ export default class TermsOfService extends Component {
           </View>
         </View>
         <View>
-          <Text style={styles.title_terms}>Terms of Service</Text>
+          <Text style={styles.title_terms}>{t('terms_service')}</Text>
           <ScrollView>
             <Text style={styles.text}>
               Les données personnelles que vous avez communiquées à Action

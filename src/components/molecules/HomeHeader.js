@@ -52,11 +52,11 @@ export default class HomeHeader extends Component {
     } else {
       switch (this.state.projectTitle) {
         case 'Food project name':
-          return 'Food monitor';
+          return t('food_monitor');
         case 'Health project name':
-          return 'Health monitor';
+          return t('health_monitor');
         default:
-          return 'Other monitor';
+          return t('other_monitor');
       }
     }
   };

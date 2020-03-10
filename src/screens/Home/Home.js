@@ -159,7 +159,7 @@ export default class Home extends Component {
         <Text
           style={styles.link_terms}
           onPress={() => this.props.navigation.navigate('TermsOfService')}>
-          Terms of service
+          {t('terms_service')}
         </Text>
         <ModalHome
           // typeOfProject={this.projectTitle()}

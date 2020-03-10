@@ -120,13 +120,22 @@ export default class ScanResult extends Component {
       let snapshot = snap.val();
       let newSnapshot = Object.values(snapshot);
       for (let i = 0; i < newSnapshot.length; i++) {
-        if (newSnapshot[i].familyUuid === qrCodeID) {
+        if (newSnapshot[i] && newSnapshot[i].familyUuid === qrCodeID) {
           _name = newSnapshot[i].name;
           _familyID = newSnapshot[i].familyID;
-          _foodActivity.push({
-            food: [...newSnapshot[i].foodActivity],
-            firstName: newSnapshot[i].first_name,
-          });
+          if (newSnapshot[i].foodActivity !== undefined) {
+            _foodActivity.push({
+              food: [...newSnapshot[i].foodActivity],
+              firstName: newSnapshot[i].first_name,
+            });
+          } else {
+            _foodActivity.push({
+              food: [],
+              firstName: '',
+            });
+          }
+        } else {
+          console.log('get member data impossible');
         }
       }
       this.setState({
@@ -194,7 +203,7 @@ export default class ScanResult extends Component {
           justifyContent: 'center',
         }}>
         <Text style={{color: 'red', fontSize: 20, textAlign: 'center'}}>
-          Vous n'avez pas les accès a ces données.
+          {t('no_access')}
         </Text>
         <TouchableOpacity
           style={{marginTop: 30}}
@@ -220,8 +229,7 @@ export default class ScanResult extends Component {
     return (
       <View style={[styles.white_bloc_text, {justifyContent: 'center'}]}>
         <Text>
-          {this.state.name} is not registered to any awareness program to food
-          practices
+          {this.state.name} {t('not_registred')}
         </Text>
       </View>
     );
@@ -267,7 +275,7 @@ export default class ScanResult extends Component {
                   qrCodeID: this.props.navigation.state.params.qrCodeID,
                 });
               }}>
-              <Text style={styles.text_activity}>Add individual activity</Text>
+              <Text style={styles.text_activity}>{t('add_individual')}</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.btn_activity}
@@ -277,7 +285,7 @@ export default class ScanResult extends Component {
                   from: 'family',
                 });
               }}>
-              <Text style={styles.text_activity}>Add family activity</Text>
+              <Text style={styles.text_activity}>{t('add_family')}</Text>
             </TouchableOpacity>
           </View>
           <View style={styles.wrapper_individual_family}>
@@ -289,7 +297,9 @@ export default class ScanResult extends Component {
               onPress={() => {
                 this.lineIndividualOrFamily('individual');
               }}>
-              <Text style={styles.text_individual_family}>INDIVIDUAL</Text>
+              <Text style={styles.text_individual_family}>
+                {t('individual')}
+              </Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={[
@@ -299,7 +309,7 @@ export default class ScanResult extends Component {
               onPress={() => {
                 this.lineIndividualOrFamily('family');
               }}>
-              <Text style={styles.text_individual_family}>FAMILY</Text>
+              <Text style={styles.text_individual_family}>{t('family')}</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -392,6 +402,7 @@ const styles = StyleSheet.create({
   },
   text_activity: {
     color: color.white,
+    fontSize: 12,
   },
   wrapper_individual_family: {
     flexDirection: 'row',

@@ -71,7 +71,7 @@ export default class FamilyMembers extends Component {
             <View style={{alignItems: 'center', marginVertical: 28}}>
               <BtnMain
                 press={() => this.props.navigation.navigate('AddMembers')}
-                title="ADD A MEMBER"
+                title={t('add_member')}
                 backgroundColor={colors.blue_mainColorApp}
                 width={wp('44.2%')}
                 size={n(12)}

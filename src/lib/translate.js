@@ -3,6 +3,8 @@ export default t = key => {
 };
 
 const keys = {
+  // ----------  word on several component
+  add_member: 'AJOUT MEMBRE',
   //card
   householder: 'Chef de ménage',
   years: 'années',
@@ -42,12 +44,15 @@ const keys = {
   //homeHeader
   hello: 'Bonjour',
   food_monitor: 'Animateur sécurité alimentaire',
+  health_monitor: 'Animateur sécurité medical',
+  other_monitor: 'Animateur',
   //home
   change: 'changer',
+  terms_service: "Conditions d'utilisation", // Terms of service
   //modal home
   quick_add: 'AJOUT RAPIDE',
-  detailed: "AJOUT DÉTAILLÉ",
-  single_person: "AJOUT PERSONNE SEUL",
+  detailed: 'AJOUT DÉTAILLÉ',
+  single_person: 'AJOUT PERSONNE SEUL',
   //AddMembers
   man: 'Homme',
   woman: 'Femme',
@@ -96,10 +101,20 @@ const keys = {
   aboutLocation: 'À propos du lieu',
   //search results
   searchResult: 'résultats de la recherche',
+  //scan result
+  add_individual: 'Ajout activité individuelle', //Add individual activity
+  add_family: 'Ajout activité familiale', // add family activity
+  individual: 'INDIVIDU', // individual
+  family: 'FAMILLE', //family
+  no_access: "Vous n'avez pas les accès a ces données.",
+  not_registred: "n'est inscrit à aucun programme de sensibilisation aux pratiques alimentaires"
+  //is not registered to any awareness program to foodpractices
 };
 
 // en anglais :
 // const keys = {
+// ----------  word on several component
+//  add_member: 'ADD A MEMBER',
 //   //card
 
 //   householder: 'Householder',
