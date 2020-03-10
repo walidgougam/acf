@@ -26,7 +26,7 @@ export default class ScanResult extends Component {
       btnDeliver: true,
       btnHistory: false,
       familyProject: '',
-      familyID: '-M0X5YXtfjwmLACIu5n7', //supprimer la valeur de cette family ID
+      familyID: '', //supprimer la valeur de cette family ID
       familyActivity: [],
       foodActivity: [],
       type: '',

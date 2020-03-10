@@ -21,6 +21,7 @@ const addNewFamily = async (_familyData, _membersFamily, _food_activity) => {
         }))
       : [];
     if (familyData && membersFamily && food_activity) {
+      console.log(membersFamily, 'MEMBER FAMILY ADD NEW FAMILY');
       foodActivitiesId.createdAt = f.database.ServerValue.TIMESTAMP;
       database
         .ref('family')
@@ -68,6 +69,7 @@ const editMember = async (
   memberID,
 ) => {
   try {
+    console.log(_membersFamily, 'MEMBER FAMILY EDIT MEMBER');
     let memebersID = [];
     let familyData =
       _familyData || JSON.parse(await AsyncStorage.getItem('familyData'));
@@ -91,7 +93,6 @@ const editMember = async (
 };
 
 const editFamilyFood = async (familyID, foodActivity) => {
-  console.log(familyID, 'family id ');
   let foodActivitiesId = foodActivity ? foodActivity.map(({id}) => id) : [];
   try {
     database
@@ -127,6 +128,7 @@ const editFamily = async (
   memberID,
 ) => {
   try {
+    console.log(_membersFamily, 'MEMBER FAMILY EDIT FAMILY');
     let memebersID = [];
     let familyData =
       _familyData || JSON.parse(await AsyncStorage.getItem('familyData'));
@@ -148,15 +150,10 @@ const editFamily = async (
       : [];
 
     // if (familyData && qrCodeID&& membersFamily) {
-    console.log('je rentre dans le if de sync');
-    console.log(familyId, 'family id de sync ');
-    console.log(familyData, 'family data de sync ');
-    console.log(foodActivitiesId, 'foodActivitiesId de sync ');
-    console.log(qrCodeID, 'qr code id');
     if (memberID === undefined) {
       database.ref('members').push({
-        ..._membersFamily,
-        familyId,
+        ...membersFamily,
+        familyID: familyId,
         familyUuid: _qrCodeID,
         foodActivity: _food_activity,
       });

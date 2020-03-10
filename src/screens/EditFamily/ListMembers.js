@@ -48,9 +48,6 @@ export default class ListMembers extends Component {
   };
 
   componentDidMount = () => {
-    console.log('====================================');
-    console.log();
-    console.log('====================================');
     const {qrCodeID} = this.props.navigation.state.params;
     database
       .ref('members')
@@ -142,7 +139,6 @@ export default class ListMembers extends Component {
       gps,
       site,
     } = this.state;
-    console.log(members, 'this.State.members');
     this.props.navigation.navigate('EditFoodActivity', {
       membersFamily: members,
       familyData: {

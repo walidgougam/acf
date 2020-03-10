@@ -92,6 +92,8 @@ export default class EditDataAcceptation extends Component {
       ...this.props.navigation.state.params,
     };
 
+    console.log(membersFamily, 'members family edit food activity');
+
     const food_activity_object = this.state.foodKey
       .filter((key, index) => this.state.chekedActivities[index])
       .map((id, index) => ({
@@ -101,15 +103,11 @@ export default class EditDataAcceptation extends Component {
     this.props.navigation.navigate('EditDataAcceptation', {
       familyData,
       familyID: this.props.navigation.state.params.familyID,
-      membersFamily: membersFamily,
+      membersFamily,
       food_activity: food_activity_object,
       qrCodeID: this.props.navigation.state.params.qrCodeID,
       membersID: this.props.navigation.state.params.membersID, // for now undefined
     });
-    console.log(
-      this.props.navigation.state.params.membersID,
-      'members id edit food activity',
-    );
   };
 
   // fonction a reecrire
@@ -139,7 +137,6 @@ export default class EditDataAcceptation extends Component {
     };
     return (
       <View style={styles.container}>
-        {console.log(this.state.foodKey, 'food keyyy')}
         {/* name of family must be a props which will be different depending on family*/}
         <MainHeader
           title="Food Activity"

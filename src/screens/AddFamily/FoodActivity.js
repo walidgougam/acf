@@ -88,6 +88,8 @@ export default class FoodActivity extends Component {
       ...this.props.navigation.state.params,
     };
 
+    console.log(membersFamily, 'members family food activity');
+
     const food_activity_object = this.state.foodKey
       .filter((key, index) => this.state.checkedActivities[index])
       .map((id, index) => ({

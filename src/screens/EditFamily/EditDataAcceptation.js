@@ -138,13 +138,6 @@ export default class EditDataAcceptation extends Component {
     let memebersID = [];
     NetInfo.fetch().then(async state => {
       if (state.isConnected) {
-        console.log('je rentre dans ledit family de edit data acceptation');
-        console.log(familyID, 'family id edit data acceptation');
-        console.log(familyData, 'familyDatad edit data acceptation');
-        console.log(membersFamily, 'membersFamily edit data acceptation');
-        console.log(food_activity, 'food_activity edit data acceptation');
-        console.log(qrCodeID, 'qrCodeID edit data acceptation');
-        console.log(membersID, 'memberID edit data acceptation');
         editFamily(
           familyID,
           familyData,
