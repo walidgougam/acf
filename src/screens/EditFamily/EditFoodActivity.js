@@ -39,6 +39,10 @@ export default class EditDataAcceptation extends Component {
   };
 
   componentDidMount = async () => {
+    console.log(
+      this.props.navigation.state.params.membersFamily,
+      'members familouis log log log',
+    );
     let idOfCurrentMember = await AsyncStorage.getItem('idOfCurrentMember');
     let idOfCurrentFamily = await AsyncStorage.getItem('idOfCurrentFamily');
     let id = await AsyncStorage.getItem('idOfAcfOwner');

@@ -50,8 +50,8 @@ export default class ScanResult extends Component {
   };
 
   init = async () => {
-    let {qrCodeID} = this.props.navigation.state.params || {};
-    if (this.props.navigation.state.params.goBackFromScan === true) {
+    let {qrCodeID} = this.props.navigation?.state?.params || {};
+    if (this.props.navigation?.state?.params?.goBackFromScan === true) {
       return (
         await this.getMemberData(qrCodeID),
         await this.getFamilyProject(qrCodeID),
@@ -83,7 +83,6 @@ export default class ScanResult extends Component {
           _allIdFoodActivity.push(newSnapshot[i].food_activity);
         }
       }
-      console.log(_healthArea, '__health area');
       this.setState({
         familyProject: _familyProject,
         healthArea: _healthArea,
@@ -122,7 +121,6 @@ export default class ScanResult extends Component {
       let newSnapshot = Object.values(snapshot);
       for (let i = 0; i < newSnapshot.length; i++) {
         if (newSnapshot[i].familyUuid === qrCodeID) {
-          console.log(newSnapshot[i], 'newsnapshot iiii');
           _name = newSnapshot[i].name;
           _familyID = newSnapshot[i].familyID;
           _foodActivity.push({
@@ -131,13 +129,11 @@ export default class ScanResult extends Component {
           });
         }
       }
-      console.log(_foodActivity, 'food activity on get member data');
       this.setState({
         name: _name,
         familyID: _familyID,
         foodActivity: _foodActivity,
       });
-      console.log(_foodActivity, 'food activity');
     });
   };
 
@@ -157,7 +153,6 @@ export default class ScanResult extends Component {
               myHealthArea?.toLowerCase() ===
               this.state.healthArea?.toLowerCase(),
           ) !== undefined;
-        console.log(this.state.healthArea, 'this.state.healtharea');
         this.setState({goodHealthArea});
       });
   };
@@ -309,7 +304,7 @@ export default class ScanResult extends Component {
           </View>
         </View>
         {this.state.btnIndividual ? (
-          this.state.foodActivity.length > 0 ? (
+          this.state.foodActivity && this.state.foodActivity.length > 0 ? (
             <View style={styles.white_bloc_text}>
               <ScrollView showsVerticalScrollIndicator={false}>
                 {this.state.foodActivity.map((activity, index) => {

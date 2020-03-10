@@ -48,7 +48,9 @@ export default class ListMembers extends Component {
   };
 
   componentDidMount = () => {
-    console.log(qrCodeID, 'qr code id list members');
+    console.log('====================================');
+    console.log();
+    console.log('====================================');
     const {qrCodeID} = this.props.navigation.state.params;
     database
       .ref('members')
@@ -123,7 +125,6 @@ export default class ListMembers extends Component {
   };
 
   btnNext = () => {
-    // const {membersFamily, familyData} = this.props.navigation.state.params;
     const {
       familyData,
       familyID,
@@ -215,9 +216,9 @@ export default class ListMembers extends Component {
             <View style={{alignItems: 'center', marginVertical: 28}}>
               <BtnMain
                 press={() =>
-                  this.props.navigation.navigate('EditMembers', {
-                    // oldMembersFamily: membersFamily,
-                    addMoreMember: true,
+                  this.props.navigation.navigate('EditAddMember', {
+                    qrCodeID,
+                    familyID: this.props.navigation.state.params.familyID,
                   })
                 }
                 title="ADD A MEMBER"

@@ -30,6 +30,7 @@ import EditFamilyMembers from './src/screens/EditFamily/EditFamilyMembers';
 import EditFoodActivity from './src/screens/EditFamily/EditFoodActivity';
 import EditDataAcceptation from './src/screens/EditFamily/EditDataAcceptation';
 import EditFamilyCard from './src/screens/EditFamily/EditFamilyCard';
+import EditAddMember from './src/screens/EditFamily/EditAddMember'
 import DeliverAndHistory from './src/screens/HealthActivity/DeliverAndHistory';
 import DeliverAndHistorySearch from './src/screens/Supervisor/DeliverAndHistorySearch';
 import AdvancedSearch from './src/screens/Supervisor/AdvancedSearch';
@@ -122,6 +123,7 @@ const FamilyStack2 = createStackNavigator({
   EditFoodActivity: EditFoodActivity,
   EditDataAcceptation: EditDataAcceptation,
   EditFamilyCard: EditFamilyCard,
+  EditAddMember: EditAddMember
 });
 
 const SupervisorStack = createStackNavigator({

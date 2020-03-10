@@ -52,37 +52,7 @@ export default class EditMembers extends Component {
 
   componentDidMount() {
     this.allStateEmpty();
-    this.getDataMember();
   }
-
-  getDataMember = () => {
-    const {membersID} = this.props.navigation.state.params;
-    database.ref('members/' + membersID).once('value', snap => {
-      let snapshot = snap.val();
-      console.log(membersID, 'member ID');
-      console.log(snapshot, 'snapshooooot');
-      this.setState({
-        man: snapshot.man,
-        woman: snapshot.woman,
-        child: snapshot.child,
-        name: snapshot.name,
-        first_name: snapshot.first_name,
-        age: snapshot.age,
-        birth_date: snapshot.birth_date,
-        id_number: snapshot.id_number,
-        marital_status: snapshot.marital_status,
-        family_members: snapshot.family_members,
-        male_members: snapshot.male_members,
-        female_members: snapshot.female_members,
-        notDisclosed: snapshot.notDisclosed,
-        isHouseholder: snapshot.isHouseholder,
-        // familyID: 12,
-        // familyUuid: '13',
-        // date: '',
-        // id_acf_owner:12,
-      });
-    });
-  };
 
   componentWillUnmount() {
     this.setState(initialState);
@@ -218,57 +188,15 @@ export default class EditMembers extends Component {
 
   membersFamily = [];
   btnValidate = () => {
-    let {
-      familyData,
-      oldMembersFamily,
-      familyID,
-      qrCodeID,
-      membersID,
-    } = this.props.navigation.state.params;
-    const _membersFamily = oldMembersFamily || [];
-
-    _membersFamily.length > 0 && this.membersFamily.concat(_membersFamily);
     this.membersFamily.push({
       ...this.state,
       id_acf_owner: auth.currentUser?.uid,
       date: f.database.ServerValue.TIMESTAMP,
     });
-
-    NetInfo.fetch().then(async state => {
-      if (state.isConnected) {
-        editMember(
-          familyID,
-          familyData,
-          this.membersFamily,
-          [],
-          qrCodeID,
-          membersID,
-        );
-      } else {
-        await AsyncStorage.setItem('familyData', JSON.stringify(familyData));
-        await AsyncStorage.setItem(
-          'membersFamily',
-          JSON.stringify(membersFamily),
-        );
-        await AsyncStorage.setItem(
-          'food_activity',
-          JSON.stringify(food_activity),
-        );
-      }
-      this.props.navigation.navigate('EditFamilyCard', {
-        familyData: this.props.navigation.state.params.familyData,
-        membersFamily: this.membersFamily,
-        familyID: this.props.navigation.state.params.familyID,
-        qrCodeID: this.props.navigation.state.params.qrCodeID,
-        memberID: this.props.navigation.state.params.membersID,
-      });
-      console.log(
-        this.props.navigation.state.params.membersID,
-        'members IDDDDDDDDD',
-      );
-      this.setState(initialState);
-      this.allStateEmpty();
-      return;
+    this.props.navigation.navigate('EditFoodActivity', {
+      familyID: this.props.navigation.state.params.familyID,
+      qrCodeID: this.props.navigation.state.params.qrCodeID,
+      membersFamily: this.membersFamily,
     });
   };
 
