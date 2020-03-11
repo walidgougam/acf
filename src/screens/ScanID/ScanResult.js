@@ -44,6 +44,13 @@ export default class ScanResult extends Component {
   static navigationOptions = {
     header: null,
   };
+  componentWillReceiveProps = nextProps => {
+    if (nextProps !== null) {
+      this.init();
+    } else {
+      console.log('false will receive props');
+    }
+  };
 
   componentDidMount = () => {
     this.init();
