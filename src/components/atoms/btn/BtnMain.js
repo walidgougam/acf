@@ -31,7 +31,6 @@ export default class BtnMain extends Component {
             },
           ]}>
           <Icon name={this.props.type === 'addMember' && 'plus'} size={n(14)} />
-          {'  '}
           <Text style={[styles.text_title, {color: color, fontSize: size}]}>
             {this.props.title}
           </Text>
