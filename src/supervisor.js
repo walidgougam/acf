@@ -80,7 +80,7 @@ export default project = [
     },
     food: [
       {
-        title: 'Dévelloppement des AVEC',
+        title: 'Développement des AVEC',
         detail: 'des AVEC',
       },
       {
