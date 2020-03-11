@@ -48,7 +48,6 @@ export default class ListMembersFoodActivity extends Component {
   };
 
   componentDidMount = () => {
-    console.log(qrCodeID, 'qr code id list members');
     const {qrCodeID} = this.props.navigation.state.params;
     database
       .ref('members')
