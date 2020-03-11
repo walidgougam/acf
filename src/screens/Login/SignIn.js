@@ -129,8 +129,8 @@ export default class SignIn extends Component {
     this.isUserOnDB();
   };
 
-  isUserOnDB = () => {
-    database.ref('acf_owner').once('value', snap => {
+  isUserOnDB = async () => {
+    await database.ref('acf_owner').once('value', snap => {
       let snapshot = snap.val();
       let sizeOfSnapshot = Object.keys(snapshot).length;
       let snapshotArray = Object.values(snapshot);
@@ -140,7 +140,8 @@ export default class SignIn extends Component {
         if (
           snapshotArray[i].email.toLowerCase() ===
             this.state.email.toLowerCase() &&
-          snapshotArray[i].password === this.state.password
+          snapshotArray[i].password.toLowerCase() ===
+            this.state.password.toLowerCase()
         ) {
           this.setState({
             errorInput: false,
@@ -247,9 +248,6 @@ export default class SignIn extends Component {
     const {email, password} = this.state;
     return (
       <View style={styles.container}>
-        {console.log(this.state.errorInput, 'error input')}
-        {console.log(this.state.email, 'email')}
-        {console.log(this.state.password, 'password')}
         <ScrollView
           refreshControl={
             <RefreshControl

@@ -235,6 +235,31 @@ export default class ScanResult extends Component {
     );
   };
 
+  renderFoodActivity = () => {
+    let all = [];
+    this.state.foodActivity.map(e => {
+      for (let i = 0; i < e.food.length; i++)
+        all.push({...e.food[i], firstName: e.firstName});
+    });
+    return (
+      <View style={styles.white_bloc_text}>
+        <ScrollView showsVerticalScrollIndicator={false}>
+          {all.map((activity, index) => {
+            return (
+              <ActivityCard
+                type={this.state.type}
+                firstName={activity.firstName}
+                familyProject={this.state.familyProject}
+                detail={activity.detail}
+                title={activity.title}
+              />
+            );
+          })}
+        </ScrollView>
+      </View>
+    );
+  };
+
   render() {
     if (this.state.isLoading) return this._renderLoading();
     if (this.state.isLoading === false && this.state.goodHealthArea === false)
@@ -315,21 +340,7 @@ export default class ScanResult extends Component {
         </View>
         {this.state.btnIndividual ? (
           this.state.foodActivity && this.state.foodActivity.length > 0 ? (
-            <View style={styles.white_bloc_text}>
-              <ScrollView showsVerticalScrollIndicator={false}>
-                {this.state.foodActivity.map((activity, index) => {
-                  return (
-                    <ActivityCard
-                      type={this.state.type}
-                      firstName={activity.firstName}
-                      familyProject={this.state.familyProject}
-                      detail={activity.food.map(e => e.detail)}
-                      title={activity.food.map(e => e.title)}
-                    />
-                  );
-                })}
-              </ScrollView>
-            </View>
+            this.renderFoodActivity()
           ) : (
             this.renderNoActivity()
           )
