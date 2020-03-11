@@ -51,7 +51,7 @@ export default class FamilyCard extends Component {
   static navigationOptions = {
     header: null,
   };
-
+  
   componentDidMount = async () => {
     let idOfCurrentMember = await AsyncStorage.getItem('idOfCurrentMember');
     let idOfCurrentFamily = await AsyncStorage.getItem('idOfCurrentFamily');
@@ -95,6 +95,8 @@ export default class FamilyCard extends Component {
   };
 
   sendMail = async () => {
+    this.refs.viewShot.capture().then(async uri => {
+    
     if (Platform.OS !== 'ios') {
       try {
         let hasPermission = await PermissionsAndroid.check(
@@ -125,7 +127,7 @@ export default class FamilyCard extends Component {
       }/project_overview_${Number(new Date())}.png`;
 
       try {
-        await RNFS.copyFile(this.path, this.path2);
+        await RNFS.copyFile(uri, this.path2);
       } catch (error) {
         alert(error);
         return;
@@ -166,6 +168,7 @@ export default class FamilyCard extends Component {
         );
       },
     );
+  })
   };
 
   render() {
@@ -188,7 +191,7 @@ export default class FamilyCard extends Component {
         <View style={styles.wrapper_white_background}>
           <ScrollView showsVerticalScrollIndicator={false}>
             <View style={styles.wrapper_card_and_print}>
-              <ViewShot onCapture={this.onCapture} captureMode="mount">
+              <ViewShot ref="viewShot">
                 <View style={[styles.wrapper_card]}>
                   <View
                     style={[
@@ -359,7 +362,7 @@ const styles = StyleSheet.create({
   },
   wrapper_card: {
     width: 260,
-    height: 370,
+    marginTop: n(46),
     marginBottom: n(20),
   },
   wrapper_card_and_print: {
@@ -371,7 +374,7 @@ const styles = StyleSheet.create({
     height: 238,
     borderTopLeftRadius: n(14),
     borderTopRightRadius: n(14),
-    marginTop: n(46),
+    //
   },
   img_family_circle: {
     backgroundColor: colors.white,
