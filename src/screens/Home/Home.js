@@ -20,9 +20,10 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
-import {database} from '../../../ConfigFirebase';
+import {database, auth} from '../../../ConfigFirebase';
 import NetInfo from '@react-native-community/netinfo';
 import {addNewFamily, getActivityFoodData} from '../../lib/sync';
+import {Base64} from 'js-base64';
 
 export default class Home extends Component {
   constructor(props) {

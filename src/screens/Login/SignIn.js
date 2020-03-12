@@ -45,7 +45,7 @@ export default class SignIn extends Component {
     this.onChange = this.onChange.bind(this);
     this.validationEmail = this.validationEmail.bind(this);
     this.validationPassword = this.validationPassword.bind(this);
-    this.newUser();
+    // this.newUser();
   }
 
   static navigationOptions = {
@@ -55,11 +55,20 @@ export default class SignIn extends Component {
   componentDidMount() {
     this.isConnectedToWifi();
     let password = 'test1234';
-    this.verifyEmailAndPassword(this.state.email, this.state.password);
-    // database.ref('walid').push({
-    //   name: Base64.encode('walidou'),
-    // });
+    // this.verifyEmailAndPassword(this.state.email, this.state.password);
   }
+
+  onChange = (type, value) => {
+    if (type === 'email') {
+      this.setState({
+        email: value,
+      });
+    } else if (type === 'password') {
+      this.setState({
+        password: Base64.encode(value),
+      });
+    }
+  };
 
   isConnectedToWifi = () => {
     NetInfo.fetch().then(state => {
@@ -94,23 +103,23 @@ export default class SignIn extends Component {
     return connected && this.props.navigation.navigate('ProjectScreen');
   };
 
-  newUser = async () => {
-    await auth.onAuthStateChanged(user => {
-      if (user) {
-        console.log(user + 'est connecté');
-      } else {
-        console.log('personne nest connecté');
-      }
-    });
-  };
+  // newUser = async () => {
+  //   await auth.onAuthStateChanged(user => {
+  //     if (user) {
+  //       console.log(user + 'est connecté');
+  //     } else {
+  //       console.log('personne nest connecté');
+  //     }
+  //   });
+  // };
 
-  verifyEmailAndPassword = (email, password) => {
-    database.ref('/acf_owner').once('value', snap => {
-      let snapshot = snap.val();
-      let hello = Object.values(snapshot);
-      hello.map(e => console.log(e.email, 'e.email'));
-    });
-  };
+  // verifyEmailAndPassword = (email, password) => {
+  //   database.ref('/acf_owner').once('value', snap => {
+  //     let snapshot = snap.val();
+  //     let hello = Object.values(snapshot);
+  //     hello.map(e => console.log(e.email, 'e.email'));
+  //   });
+  // };
 
   userConnection = () => {
     this.isUserOnDB();
@@ -156,19 +165,6 @@ export default class SignIn extends Component {
       await AsyncStorage.setItem('supervisor', supervisor ? 'supervisor' : '');
       await AsyncStorage.setItem('idOfAcfOwner', auth.currentUser.uid);
       this.props.navigation.navigate('ProjectScreen');
-      // database
-      //   .ref('/acf_owner')
-      //   .child(auth.currentUser.uid)
-      //   .set({
-      //     email: this.state.email,
-      //     password: this.state.password,
-      //     supervisor: true,
-      //     health_area: ['Mweso-Territoire', 'Kalonda Ouest'],
-      //   })
-      //   .then(value => {
-      //     getActivityFoodData(['Mweso-Territoire', 'Kalonda Ouest']);
-      //     projectData(auth.currentUser.uid);
-      //   });
     } catch (err) {
       console.log(err);
     }
@@ -182,12 +178,6 @@ export default class SignIn extends Component {
       password: password,
       supervisor: supervisor,
     });
-  };
-
-  onChange = (type, value) => {
-    let _status = this.state;
-    _status[type] = value;
-    this.setState(_status);
   };
 
   validationEmail = () => {

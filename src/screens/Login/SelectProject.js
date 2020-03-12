@@ -23,6 +23,8 @@ import {ScrollView} from 'react-native-gesture-handler';
 import NetInfo from '@react-native-community/netinfo';
 import {projectData} from '../../lib/sync';
 import t from '../../lib/translate';
+import {Base64} from 'js-base64';
+import {auth, database} from '../../../ConfigFirebase';
 
 export default class SelectProject extends Component {
   constructor(props) {
@@ -47,10 +49,20 @@ export default class SelectProject extends Component {
     });
 
     this.getData();
+
+    // let data = {
+    //   email: 'superviseur25@acf.com',
+    //   // health_area: ['Mweso-Territoire', 'Kalonda Ouest'],
+    //   health_area: ['Kalomba', 'Drodro'],
+    //   password: Base64.encode('superviseur25'),
+    //   supervisor: false,
+    // };
+    // database.ref('acf_owner/' + auth.currentUser.uid).set({...data});
   };
 
   getData = async () => {
     let _idAcfOwner = await AsyncStorage.getItem('idOfAcfOwner');
+    console.log(_idAcfOwner, 'id acf owner');
     NetInfo.fetch().then(async state => {
       if (state.isConnected) {
         projectData(_idAcfOwner, resultProject => {
@@ -90,11 +102,6 @@ export default class SelectProject extends Component {
     const {isLoading, project} = this.state;
 
     return (
-      //   isLoading ? (
-      //   <View style={{flex: 1, justifyContent: 'center'}}>
-      //     <ActivityIndicator size="large" color="#0000ff" />
-      //   </View>
-      // ) : (
       <View style={styles.container}>
         <LoginHeader title={t('project')} />
         <View
