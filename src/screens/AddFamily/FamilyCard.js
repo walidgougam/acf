@@ -51,7 +51,7 @@ export default class FamilyCard extends Component {
   static navigationOptions = {
     header: null,
   };
-  
+
   componentDidMount = async () => {
     let idOfCurrentMember = await AsyncStorage.getItem('idOfCurrentMember');
     let idOfCurrentFamily = await AsyncStorage.getItem('idOfCurrentFamily');
@@ -96,79 +96,78 @@ export default class FamilyCard extends Component {
 
   sendMail = async () => {
     this.refs.viewShot.capture().then(async uri => {
-    
-    if (Platform.OS !== 'ios') {
-      try {
-        let hasPermission = await PermissionsAndroid.check(
-          PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
-        );
-        if (!hasPermission) {
-          const granted = await PermissionsAndroid.request(
+      if (Platform.OS !== 'ios') {
+        try {
+          let hasPermission = await PermissionsAndroid.check(
             PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
-            {
-              title: 'write_storage_permission',
-              message: 'write_storage_permission_message',
-              buttonNegative: 'cancel',
-              buttonPositive: 'ok',
-            },
           );
-          hasPermission = granted !== PermissionsAndroid.RESULTS.GRANTED;
+          if (!hasPermission) {
+            const granted = await PermissionsAndroid.request(
+              PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
+              {
+                title: 'write_storage_permission',
+                message: 'write_storage_permission_message',
+                buttonNegative: 'cancel',
+                buttonPositive: 'ok',
+              },
+            );
+            hasPermission = granted !== PermissionsAndroid.RESULTS.GRANTED;
+          }
+          if (!hasPermission) {
+            handleError('error_accessing_storage');
+            return;
+          }
+        } catch (error) {
+          console.warn(error);
         }
-        if (!hasPermission) {
-          handleError('error_accessing_storage');
+
+        this.path2 = `${
+          RNFS.ExternalStorageDirectoryPath
+        }/project_overview_${Number(new Date())}.png`;
+
+        try {
+          await RNFS.copyFile(uri, this.path2);
+        } catch (error) {
+          alert(error);
           return;
         }
-      } catch (error) {
-        console.warn(error);
       }
 
-      this.path2 = `${
-        RNFS.ExternalStorageDirectoryPath
-      }/project_overview_${Number(new Date())}.png`;
-
-      try {
-        await RNFS.copyFile(uri, this.path2);
-      } catch (error) {
-        alert(error);
-        return;
-      }
-    }
-
-    Mailer.mail(
-      {
-        subject: 'Send QR CODE',
-        recipients: ['support@example.com'],
-        ccRecipients: [],
-        bccRecipients: [],
-        body: ' ',
-        isHTML: true,
-        attachment: {
-          path: this.path2, // The absolute path of the file from which to read data.
-          type: 'png', // Mime Type: jpg, png, doc, ppt, html, pdf, csv
-          name: 'QRCODE', // Optional: Custom filename for attachment
-        },
-      },
-      (error, event) => {
-        Alert.alert(
-          error,
-          event,
-          [
-            {
-              text: 'Ok',
-              onPress: () => console.log('OK: Email Error Response'),
-            },
-            {
-              text: 'Cancel',
-              onPress: () => console.log('CANCEL: Email Error Response'),
-            },
-          ],
-          {
-            cancelable: true,
+      Mailer.mail(
+        {
+          subject: 'Send QR CODE',
+          recipients: [''],
+          ccRecipients: [],
+          bccRecipients: [],
+          body: ' ',
+          isHTML: true,
+          attachment: {
+            path: this.path2, // The absolute path of the file from which to read data.
+            type: 'png', // Mime Type: jpg, png, doc, ppt, html, pdf, csv
+            name: 'QRCODE', // Optional: Custom filename for attachment
           },
-        );
-      },
-    );
-  })
+        },
+        (error, event) => {
+          Alert.alert(
+            error,
+            event,
+            [
+              {
+                text: 'Ok',
+                onPress: () => console.log('OK: Email Error Response'),
+              },
+              {
+                text: 'Cancel',
+                onPress: () => console.log('CANCEL: Email Error Response'),
+              },
+            ],
+            {
+              cancelable: true,
+            },
+          );
+        },
+      );
+    });
   };
 
   render() {

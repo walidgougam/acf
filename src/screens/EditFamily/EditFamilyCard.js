@@ -135,7 +135,7 @@ export default class EditFamilyCard extends Component {
     Mailer.mail(
       {
         subject: 'Send QR CODE',
-        recipients: ['support@example.com'],
+        recipients: [''],
         ccRecipients: [],
         bccRecipients: [],
         body: ' ',
