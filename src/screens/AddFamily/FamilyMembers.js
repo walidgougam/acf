@@ -72,12 +72,7 @@ export default class FamilyMembers extends Component {
     });
   };
   btnNext = () => {
-    // database.ref('family/' + auth.currentUser.uid).push({
-    //   idFamily: this.state.idOfCurrentFamily,
-    //   idMember: this.state.idOfCurrentMember,
-    // });
     const {membersFamily, familyData} = this.props.navigation.state.params;
-    console.log(membersFamily, 'members family of family member');
     this.props.navigation.navigate('FoodActivity', {
       membersFamily,
       familyData,

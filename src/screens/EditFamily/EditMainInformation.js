@@ -97,7 +97,6 @@ export default class EditMainInformation extends Component {
   }
 
   btnValidate = () => {
-    console.log(this.props.navigation.state.params.membersID, '...This.state');
     !this.allStateEmpty() &&
       this.props.navigation.navigate('EditMembers', {
         familyData: {

@@ -47,8 +47,6 @@ export default class ScanResult extends Component {
   componentWillReceiveProps = nextProps => {
     if (nextProps !== null) {
       this.init();
-    } else {
-      console.log('false will receive props');
     }
   };
 
@@ -141,8 +139,6 @@ export default class ScanResult extends Component {
               firstName: '',
             });
           }
-        } else {
-          console.log('get member data impossible');
         }
       }
       this.setState({

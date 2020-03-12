@@ -21,7 +21,6 @@ const addNewFamily = async (_familyData, _membersFamily, _food_activity) => {
         }))
       : [];
     if (familyData && membersFamily && food_activity) {
-      console.log(membersFamily, 'MEMBER FAMILY ADD NEW FAMILY');
       foodActivitiesId.createdAt = f.database.ServerValue.TIMESTAMP;
       database
         .ref('family')
@@ -69,7 +68,6 @@ const editMember = async (
   memberID,
 ) => {
   try {
-    console.log(_membersFamily, 'MEMBER FAMILY EDIT MEMBER');
     let memebersID = [];
     let familyData =
       _familyData || JSON.parse(await AsyncStorage.getItem('familyData'));
@@ -128,7 +126,6 @@ const editFamily = async (
   memberID,
 ) => {
   try {
-    console.log(_membersFamily, 'MEMBER FAMILY EDIT FAMILY');
     let memebersID = [];
     let familyData =
       _familyData || JSON.parse(await AsyncStorage.getItem('familyData'));

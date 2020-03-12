@@ -59,8 +59,6 @@ export default class EditMembers extends Component {
     const {membersID} = this.props.navigation.state.params;
     database.ref('members/' + membersID).once('value', snap => {
       let snapshot = snap.val();
-      console.log(membersID, 'member ID');
-      console.log(snapshot, 'snapshooooot');
       this.setState({
         man: snapshot.man,
         woman: snapshot.woman,
@@ -262,10 +260,6 @@ export default class EditMembers extends Component {
         qrCodeID: this.props.navigation.state.params.qrCodeID,
         memberID: this.props.navigation.state.params.membersID,
       });
-      console.log(
-        this.props.navigation.state.params.membersID,
-        'members IDDDDDDDDD',
-      );
       this.setState(initialState);
       this.allStateEmpty();
       return;

@@ -82,7 +82,6 @@ export default class DeliverAndHistory extends Component {
       let newSnapshot = Object.values(snapshot);
       for (let i = 0; i < newSnapshot.length; i++) {
         if (newSnapshot[i].familyUuid === qrCodeID) {
-          console.log(newSnapshot[i], 'blabla');
           _name = newSnapshot[i].name;
           _familyID = newSnapshot[i].familyID;
         }

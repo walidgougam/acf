@@ -61,10 +61,6 @@ export default class EditFoodActivity extends Component {
             });
           },
         );
-        console.log(
-          'val',
-          await AsyncStorage.getItem('health_area_food_activity'),
-        );
       } else {
         activityFoodData = JSON.parse(
           await AsyncStorage.getItem('health_area_food_activity'),
@@ -124,7 +120,6 @@ export default class EditFoodActivity extends Component {
     };
     return (
       <View style={styles.container}>
-        {console.log(membersFamily, 'members family food activity')}
         {/* name of family must be a props which will be different depending on family*/}
         <MainHeader
           title="Food Activity"

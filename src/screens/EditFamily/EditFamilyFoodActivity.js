@@ -99,8 +99,6 @@ export default class EditFamilyFoodActivity extends Component {
         id,
         ...this.state.food[index],
       }));
-
-    console.log(this.props.navigation.state.params.from, 'blabla');
     this.props.navigation.state.params.from === 'family'
       ? editFamilyFood(
           this.props.navigation.state.params.familyID,
@@ -148,7 +146,6 @@ export default class EditFamilyFoodActivity extends Component {
     };
     return (
       <View style={styles.container}>
-        {console.log(this.state.foodKey, 'food keyyy')}
         {/* name of family must be a props which will be different depending on family*/}
         <MainHeader
           title="Food Activity"

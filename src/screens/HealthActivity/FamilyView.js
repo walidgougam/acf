@@ -59,13 +59,11 @@ export default class FamilyView extends Component {
   };
 
   getHealthAreaFromFamily(idOfFamily) {
-    console.log(idOfFamily, 'idoffamily');
     database
       .ref('family')
       .child(idOfFamily)
       .once('value', snap => {
         let snapshot = snap.val();
-        console.log(snapshot.project_title, 'snapshotshoshotshot');
         this.setState({
           healthArea: snapshot.healtharea,
           projectTitle: snapshot.project_title,

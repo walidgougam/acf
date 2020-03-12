@@ -58,7 +58,6 @@ export default class DeliverAndHistorySearch extends Component {
       let newSnapshot = Object.values(snapshot);
       for (let i = 0; i < newSnapshot.length; i++) {
         if (newSnapshot[i].uuid === qrCodeID) {
-          console.log(newSnapshot, 'familyid');
           _familyProject = newSnapshot[i].project_title;
           _healthArea = newSnapshot[i].healtharea;
           _group = newSnapshot[i].group;
@@ -79,7 +78,6 @@ export default class DeliverAndHistorySearch extends Component {
       let snapshot = snap.val();
       let newSnapshot = Object.values(snapshot);
       for (let i = 0; i < newSnapshot.length; i++) {
-        console.log(newSnapshot, 'famil????');
         if (newSnapshot[i].familyUuid === qrCodeID) {
           _name = newSnapshot[i].name;
           _familyID = newSnapshot[i].familyID;
@@ -139,7 +137,6 @@ export default class DeliverAndHistorySearch extends Component {
       </View>
     ) : !this.state.goodHealthArea ? (
       <View style={styles.container}>
-        {console.log(this.state.familyProject, 'family project')}
         <View style={styles.wrapper_header_full_profile}>
           <ArrowGoBack
             press={() => {
@@ -231,7 +228,6 @@ export default class DeliverAndHistorySearch extends Component {
         <TouchableOpacity
           style={{marginTop: 30}}
           onPress={() => {
-            console.log('press');
             this.props.navigation.goBack();
           }}>
           <Text

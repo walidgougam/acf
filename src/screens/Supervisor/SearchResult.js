@@ -47,12 +47,10 @@ export default class SearchResult extends Component {
         this.setState({
           isConnectedToWifi: true,
         });
-        console.log('is connected to wifi select project ');
       } else {
         this.setState({
           isConnectedToWifi: false,
         });
-        console.log('it is not connected to wifi select project');
       }
     });
   };
@@ -83,7 +81,7 @@ export default class SearchResult extends Component {
         filterByAcfOwner = all.filter(value => {
           return value.id_acf_owner === auth.currentUser.uid;
         });
-        filterBy = filterByAcfOwner.filter(val => {
+        filterBy = all.filter(val => {
           return (
             (val.first_name.toLowerCase() === first_name.toLowerCase() &&
               val.first_name !== '') ||

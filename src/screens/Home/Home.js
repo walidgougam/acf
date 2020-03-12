@@ -140,7 +140,7 @@ export default class Home extends Component {
               onPress={() => this.props.navigation.navigate('AdvancedSearch')}>
               {/* faire en sorte lorsquon clique sur un bouton quil se colorie en vert*/}
               <View style={styles.wrapper_btn}>
-                <Text style={styles.text_btn}>ADVANCED SEARCH</Text>
+                <Text style={styles.text_btn}>RECHERCHE AVANCÉE</Text>
                 <Image style={styles.img} source={image.search} />
               </View>
             </TouchableOpacity>

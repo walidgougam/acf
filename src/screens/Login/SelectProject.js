@@ -51,12 +51,9 @@ export default class SelectProject extends Component {
 
   getData = async () => {
     let _idAcfOwner = await AsyncStorage.getItem('idOfAcfOwner');
-    console.log(_idAcfOwner, 'id acf owner');
     NetInfo.fetch().then(async state => {
-      console.log(state.isConnected, 'state is connected');
       if (state.isConnected) {
         projectData(_idAcfOwner, resultProject => {
-          console.log(resultProject, 'result project');
           this.setState({
             project: resultProject || [],
             isLoading: false,
@@ -91,7 +88,6 @@ export default class SelectProject extends Component {
 
   render() {
     const {isLoading, project} = this.state;
-    console.log({isLoading, project});
 
     return (
       //   isLoading ? (
