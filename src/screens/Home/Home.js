@@ -59,16 +59,6 @@ export default class Home extends Component {
       projectTitle,
       supervisor,
     });
-
-    // const healthAreaOfAcfOwner = Object.values(dataAcfOwner.health_area);
-    // let healthAreaOfAcfOwnerObjects = [];
-    // database.ref('health_area').once('value', async snap => {
-    //   healthAreaOfAcfOwnerObjects = [Object.values(snap.val())].filter(
-    //     _area => {
-    //       return healthAreaOfAcfOwner.indexOf(_area.name) > -1;
-    //     },
-    //   );
-    // });
   };
 
   imageProject = () => {

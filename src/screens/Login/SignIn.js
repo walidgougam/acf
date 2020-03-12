@@ -28,8 +28,7 @@ import {
 } from 'react-native-responsive-screen';
 import NetInfo from '@react-native-community/netinfo';
 import {getActivityFoodData, projectData} from '../../lib/sync';
-// var bcrypt = require('bcryptjs');
-// var bcrypt = dcodeIO.bcrypt;
+import {Base64} from 'js-base64';
 
 export default class SignIn extends Component {
   constructor(props) {
@@ -57,22 +56,10 @@ export default class SignIn extends Component {
     this.isConnectedToWifi();
     let password = 'test1234';
     this.verifyEmailAndPassword(this.state.email, this.state.password);
+    // database.ref('walid').push({
+    //   name: Base64.encode('walidou'),
+    // });
   }
-
-  //   hashPassword = ()=>{
-  //  var salt = bcrypt.genSaltSync(10, (err, salt) => {
-  //       bcrypt.hash('test1234', salt, (err, hash) => {
-  //         password = hash;
-  //       });
-  //     });
-  //     auth.createUserWithEmailAndPassword('test9@test.com', 'testtest9');
-  //     auth.signInWithEmailAndPassword('test1@test.com', 'testtest1');
-  //     console.log(auth.currentUser.uid, 'current user');
-  //     var hash = bcrypt.hashSync('B4c0//', salt);
-  //     database.ref('acf_owner').push({
-  //       password: hash,
-  //     });
-  //   }
 
   isConnectedToWifi = () => {
     NetInfo.fetch().then(state => {

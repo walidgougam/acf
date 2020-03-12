@@ -52,14 +52,16 @@ export default class ActivityCard extends Component {
             <Text>{moment(this.props.createdAt).format('MMM Do YY')}</Text>
             {/* <Text> Accompagnying: parent 2 </Text> */}
           </View>
+          {this.props.firstName ? (
+            <TouchableOpacity style={[styles.btn]}>
+              <Text numberOfLines={2} style={styles.text_view}>
+                {this.props.firstName}
+              </Text>
+            </TouchableOpacity>
+          ) : (
+            <Text></Text>
+          )}
         </View>
-        {this.props.firstName ? (
-          <TouchableOpacity style={[styles.btn, {elevation: 2}]}>
-            <Text style={styles.text_view}>{this.props.firstName}</Text>
-          </TouchableOpacity>
-        ) : (
-          <Text></Text>
-        )}
       </View>
     );
   }
@@ -76,19 +78,14 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
   },
   btn: {
-    width: wp('12.5%'),
+    width: 'auto',
     height: hp('3.6%'),
     backgroundColor: color.white,
-    shadowOffset: {
-      width: n(2),
-      height: n(2),
-    },
-    shadowColor: color.black,
-    shadowOpacity: 0.3,
     borderWidth: 1,
     borderColor: 'white',
     alignItems: 'center',
     justifyContent: 'center',
+    marginRight: 9,
   },
   text_view: {
     color: color.blue_mainColorApp,
