@@ -118,6 +118,7 @@ const editMemberFood = (memberID, foodActivity) => {
 };
 
 const editFamily = async (
+  forEditFamilyFoodActivity,
   familyId,
   _familyData,
   _membersFamily,
@@ -126,6 +127,9 @@ const editFamily = async (
   memberID,
 ) => {
   try {
+    console.log('====================================');
+    console.log(forEditFamilyFoodActivity);
+    console.log('====================================');
     let memebersID = [];
     let familyData =
       _familyData || JSON.parse(await AsyncStorage.getItem('familyData'));
@@ -147,7 +151,7 @@ const editFamily = async (
       : [];
 
     // if (familyData && qrCodeID&& membersFamily) {
-    if (memberID === undefined) {
+    if (memberID === undefined && !forEditFamilyFoodActivity) {
       database.ref('members').push({
         ...membersFamily,
         familyID: familyId,

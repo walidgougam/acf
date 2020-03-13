@@ -312,6 +312,7 @@ export default class ScanResult extends Component {
                 this.props.navigation.navigate('EditFamilyFoodActivity', {
                   familyID: this.state.familyID,
                   from: 'family',
+                  forEditFamilyFoodActivity: true,
                 });
               }}>
               <Text style={styles.text_activity}>{t('add_family')}</Text>

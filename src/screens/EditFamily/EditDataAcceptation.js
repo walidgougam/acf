@@ -134,11 +134,13 @@ export default class EditDataAcceptation extends Component {
       food_activity,
       qrCodeID,
       membersID,
+      forEditFamilyFoodActivity,
     } = this.props.navigation.state.params;
     let memebersID = [];
     NetInfo.fetch().then(async state => {
       if (state.isConnected) {
         editFamily(
+          forEditFamilyFoodActivity,
           familyID,
           familyData,
           membersFamily,

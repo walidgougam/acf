@@ -140,6 +140,7 @@ export default class ListMembers extends Component {
       site,
     } = this.state;
     this.props.navigation.navigate('EditFoodActivity', {
+      forEditFamilyFoodActivity: true,
       membersFamily: members,
       familyData: {
         province,

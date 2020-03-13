@@ -39,10 +39,6 @@ export default class EditDataAcceptation extends Component {
   };
 
   componentDidMount = async () => {
-    console.log(
-      this.props.navigation.state.params.membersFamily,
-      'members familouis log log log',
-    );
     let idOfCurrentMember = await AsyncStorage.getItem('idOfCurrentMember');
     let idOfCurrentFamily = await AsyncStorage.getItem('idOfCurrentFamily');
     let id = await AsyncStorage.getItem('idOfAcfOwner');
@@ -92,8 +88,6 @@ export default class EditDataAcceptation extends Component {
       ...this.props.navigation.state.params,
     };
 
-    console.log(membersFamily, 'members family edit food activity');
-
     const food_activity_object = this.state.foodKey
       .filter((key, index) => this.state.chekedActivities[index])
       .map((id, index) => ({
@@ -101,6 +95,8 @@ export default class EditDataAcceptation extends Component {
         ...this.state.food[index],
       }));
     this.props.navigation.navigate('EditDataAcceptation', {
+      forEditFamilyFoodActivity: this.props.navigation.state.params
+        .forEditFamilyFoodActivity,
       familyData,
       familyID: this.props.navigation.state.params.familyID,
       membersFamily,
