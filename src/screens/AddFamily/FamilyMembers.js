@@ -28,13 +28,6 @@ export default class FamilyMembers extends Component {
   static navigationOptions = {
     header: null,
   };
-  // componentDidMount = async () => {
-  //   let idOfCurrentMember = await AsyncStorage.getItem('idOfCurrentMember');
-  //   this.setState({
-  //     idOfCurrentMember,
-  //   });
-  //   this.getPost();
-  // };
 
   getDataFromFamily = () => {
     database
@@ -51,7 +44,6 @@ export default class FamilyMembers extends Component {
     let newTab;
     let tabFilter = [];
     database.ref('members').once('value', snapshot => {
-      // snap.forEach(val =>  this.changeState(val););
       snapshot.forEach(val => {
         tab.push(val.val());
         newTab = tab.filter(obj => {

@@ -141,7 +141,6 @@ export default class MainInformation extends Component {
                 {t('enter_information')}
               </Text>
               <Dropdown
-                // hitSlop={{top: 100, bottom: 100, left: 50, right: 50}}
                 label={t('province')}
                 rippleInsets={{top: 0, bottom: 0, right: 0, left: 0}}
                 dropdownOffset={{top: 0, left: 0}}
@@ -241,11 +240,6 @@ const styles = StyleSheet.create({
     marginBottom: Sizing.XL,
     borderColor: colors.blue_mainColorApp_40,
   },
-  // dropdownStyle: {
-  //   top: -22,
-  //   marginHorizontal: Sizing.S,
-  //   zIndex: 10,
-  // },
   dropdownStyle: {
     marginBottom: 30,
     height: n(42, 'height'),

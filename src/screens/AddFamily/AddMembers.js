@@ -52,12 +52,8 @@ export default class AddMembers extends Component {
   }
 
   componentWillUnmount() {
-    // const {addMoreMember} = this.props.navigation.state.params;
-
-    // if (addMoreMember === true) {
     this.setState(initialState);
     this.allStateEmpty();
-    // }
   }
 
   // fonction a reecrire
@@ -511,7 +507,6 @@ const styles = StyleSheet.create({
   },
   wrapper_input: {
     marginHorizontal: n(sizing.M),
-    // marginTop: n(sizing.XL),
     borderBottomColor: colors.grey_title_10,
     borderBottomWidth: 1,
     paddingBottom: n(11),

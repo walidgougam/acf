@@ -23,7 +23,6 @@ export default class EditFamilyMembers extends Component {
       idOfCurrentMember: '',
       idOfCurrentFamily: '',
     };
-    //this.getDataFromFamily();
   }
   static navigationOptions = {
     header: null,
@@ -44,7 +43,6 @@ export default class EditFamilyMembers extends Component {
     let newTab;
     let tabFilter = [];
     database.ref('members').once('value', snapshot => {
-      // snap.forEach(val =>  this.changeState(val););
       snapshot.forEach(val => {
         tab.push(val.val());
         newTab = tab.filter(obj => {
