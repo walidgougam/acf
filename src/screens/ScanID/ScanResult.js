@@ -52,6 +52,7 @@ export default class ScanResult extends Component {
 
   componentDidMount = () => {
     this.init();
+    console.log(this.props.navigation.state.params.qrCodeID, 'qr code id ');
   };
 
   init = async () => {

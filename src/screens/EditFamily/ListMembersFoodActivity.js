@@ -48,11 +48,10 @@ export default class ListMembersFoodActivity extends Component {
   };
 
   componentDidMount = () => {
-    const {qrCodeID} = this.props.navigation.state.params;
     database
       .ref('members')
       .orderByChild('familyUuid')
-      .equalTo(qrCodeID)
+      .equalTo(this.props.navigation.state.params.qrCodeID)
       .once('value', snap => {
         let snapshot = snap.val();
         const _members = Object.values(snapshot);
