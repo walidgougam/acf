@@ -33,11 +33,15 @@ export default class Home extends Component {
       showModal: false,
       projectTitle: '',
       supervisor: '',
+      healthAreaOfAcf: '',
+      isLoading: true,
     };
     this.refModal = React.createRef();
 
     let process = {isFinish: false};
-    getActivityFoodData(['Mweso-Territoire', 'Kalonda Ouest']);
+    // getActivityFoodData(['Mweso-Territoire', 'Kalonda Ouest']);
+    console.log(this.state.healthAreaOfAcf, 'health area of acf owner');
+    getActivityFoodData(this.state.healthAreaOfAcf);
     this.unsubscribe = NetInfo.addEventListener(state => {
       if (state.isConnected && !process.isFinish) {
         process.isFinish = true;
@@ -54,12 +58,26 @@ export default class Home extends Component {
   };
 
   componentDidMount = async () => {
+    this.getAcfHealthArea();
     let projectTitle = await AsyncStorage.getItem('projectTitle');
     let supervisor = await AsyncStorage.getItem('supervisor');
     this.setState({
       projectTitle,
       supervisor,
     });
+  };
+
+  getAcfHealthArea = () => {
+    database
+      .ref('acf_owner')
+      .child(auth.currentUser.uid)
+      .once('value', snap => {
+        let snapshot = snap.val();
+        this.setState({
+          healthAreaOfAcf: snapshot,
+          isLoading: false,
+        });
+      });
   };
 
   imageProject = () => {
@@ -90,7 +108,9 @@ export default class Home extends Component {
       {title: 'NOUVELLE FAMILLE', image: image.family_white}, //new family
     ];
 
-    return (
+    return this.state.isLoading ? (
+      <View></View>
+    ) : (
       <View style={styles.container}>
         <HomeHeader navigation={this.props.navigation} />
         <View style={styles.wrapper_project}>
