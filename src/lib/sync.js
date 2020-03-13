@@ -127,9 +127,6 @@ const editFamily = async (
   memberID,
 ) => {
   try {
-    console.log('====================================');
-    console.log(forEditFamilyFoodActivity);
-    console.log('====================================');
     let memebersID = [];
     let familyData =
       _familyData || JSON.parse(await AsyncStorage.getItem('familyData'));
