@@ -176,6 +176,7 @@ const editFamily = async (
 };
 
 const getActivityFoodData = async (health_area, callback) => {
+  console.log(health_area, 'healt sync');
   const healthAreaOfAcfOwner = health_area;
   let healthAreaOfAcfOwnerObjects = [];
   let foodActivity = [];
