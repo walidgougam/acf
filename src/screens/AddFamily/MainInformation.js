@@ -11,6 +11,7 @@ import BtnFooter from '../../components/atoms/btn/BtnFooter';
 import {Dropdown} from 'react-native-material-dropdown';
 import localisationTab from '../../Helpers';
 import {n} from '../../Helpers'; //normalize
+import {database, auth} from '../../../ConfigFirebase';
 
 export default class MainInformation extends Component {
   constructor(props) {
@@ -25,6 +26,7 @@ export default class MainInformation extends Component {
       village: '',
       gps: '',
       site: '',
+      healthAreaAcf: [],
       // project_title: this.props.navigation.state.params.projectTitle,
     };
   }
@@ -35,7 +37,25 @@ export default class MainInformation extends Component {
 
   componentDidMount() {
     this.allStateEmpty();
+    this.getHealthAreaOfAcf();
   }
+
+  getHealthAreaOfAcf = () => {
+    database
+      .ref('acf_owner')
+      .child(auth.currentUser.uid)
+      .once('value', snap => {
+        let snapshot = snap.val();
+        let healthArea = snapshot.health_area;
+        let newHealthArea = [];
+        for (let i = 0; i < healthArea.length; i++) {
+          newHealthArea.push({value: healthArea[i]});
+        }
+        this.setState({
+          healthAreaAcf: newHealthArea,
+        });
+      });
+  };
 
   //fonction a reecrire
   allStateEmpty = () => {
@@ -170,7 +190,7 @@ export default class MainInformation extends Component {
                 label={t('health_area')}
                 rippleInsets={{top: 0, bottom: 0, right: 0, left: 0}}
                 dropdownOffset={{top: 0, left: 0}}
-                data={localisationTab.healtharea}
+                data={this.state.healthAreaAcf}
                 containerStyle={styles.dropdownStyle}
                 onChangeText={value => this.handleForm('healtharea', value)}
                 value={healtharea}
