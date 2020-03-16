@@ -62,7 +62,6 @@ export default class SelectProject extends Component {
 
   getData = async () => {
     let _idAcfOwner = await AsyncStorage.getItem('idOfAcfOwner');
-    console.log(_idAcfOwner, 'id acf owner');
     NetInfo.fetch().then(async state => {
       if (state.isConnected) {
         projectData(_idAcfOwner, resultProject => {
@@ -153,9 +152,7 @@ export default class SelectProject extends Component {
               );
             })}
           </ScrollView>
-          <TouchableOpacity
-            style={styles.btn_notlisted}
-            onPress={() => this.props.navigation.navigate('Home')}>
+          <TouchableOpacity style={styles.btn_notlisted}>
             {/* <Text style={styles.text_notlisted}>{t('project_not_listed')}</Text> */}
           </TouchableOpacity>
         </View>

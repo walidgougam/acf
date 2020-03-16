@@ -53,6 +53,7 @@ export default class SignIn extends Component {
   };
 
   componentDidMount() {
+    this.isUserOnDB();
     this.isConnectedToWifi();
     let password = 'test1234';
     // this.verifyEmailAndPassword(this.state.email, this.state.password);
@@ -126,6 +127,7 @@ export default class SignIn extends Component {
   };
 
   isUserOnDB = async () => {
+    console.log('isuserondb');
     await database.ref('acf_owner').once('value', snap => {
       let snapshot = snap.val();
       let sizeOfSnapshot = Object.keys(snapshot).length;
