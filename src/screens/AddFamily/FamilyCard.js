@@ -171,9 +171,11 @@ export default class FamilyCard extends Component {
   };
 
   render() {
-    const {familyData} = {
+    const {familyData, membersFamily} = {
       ...this.props.navigation.state.params,
     };
+    let img = membersFamily.map(e => e.sourceProfilePicture);
+
     return (
       // this.state.isLoading ? (
       //   <View style={{flex: 1, justifyContent: 'center'}}>
@@ -213,10 +215,22 @@ export default class FamilyCard extends Component {
                         flexDirection: 'row',
                       }}>
                       <View style={styles.img_family_circle}>
-                        <Image
-                          source={image.family_green}
-                          style={styles.img_family}
-                        />
+                        {img[0] ? (
+                          <Image
+                            source={{
+                              uri: img[0],
+                            }}
+                            style={[
+                              styles.img_family,
+                              {transform: [{rotate: '90deg'}]},
+                            ]}
+                          />
+                        ) : (
+                          <Image
+                            source={image.family_green}
+                            style={styles.img_family}
+                          />
+                        )}
                       </View>
                       <View style={styles.wrapper_family_info}>
                         <Text style={styles.text_family_name}>
@@ -386,8 +400,9 @@ const styles = StyleSheet.create({
     marginTop: n(24),
   },
   img_family: {
-    width: n(52),
-    height: n(53),
+    width: n(88),
+    height: n(88),
+    borderRadius: n(107),
   },
   wrapper_family_info: {
     marginLeft: n(10),
