@@ -19,6 +19,8 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
+import NetInfo from '@react-native-community/netinfo';
+import ImageResizer from 'react-native-image-resizer';
 
 const initialState = {
   man: false,
@@ -123,42 +125,74 @@ export default class AddMembers extends Component {
     }
   };
 
-  uploadPicture = file => {
-    const mime = 'application/octet-stream';
-    const uri = file.uri;
-    const metadata = {
-      contentType: file.type,
-    };
+  uploadPicture = async file => {
+    console.log(file.uri, 'file upload picture');
+    const size = 200;
+    ImageResizer.createResizedImage(file.uri, size, size, 'JPEG', 100)
+      .then(async compressedFile => {
+        console.log('ici --1');
+        try {
+          console.log('ici 1');
+          const metadata = {
+            contentType: file.type,
+          };
+          const name = +new Date() + '-' + file.fileName;
+          const response = await fetch(compressedFile.uri);
+          const blob = await response.blob();
 
-    var reader = new FileReader();
-    reader.onloadend = function(evt) {
-      var blob = new Blob([evt.target.result], {type: 'image/jpeg'});
-
-      var storageUrl = 'noticias/imagenes/';
-      var storageRef = firebase.storage().ref(storageUrl + file.name);
-      var uploadTask = storageRef.put(blob);
-      uploadTask
-        .then(snapshot => snapshot.ref.getDownloadURL())
-        .then(url => {
-          //document.querySelector('#someImageTagID').src = url;
-        })
-        .catch(console.error);
-    };
-
-    reader.onerror = function(e) {
-      console.log('Failed file read: ' + e.toString());
-    };
-    reader.readAsArrayBuffer(file);
+          var storageRef = storage.ref('images');
+          var uploadTask = storageRef.child(name).put(blob, metadata);
+          uploadTask
+            .then(snapshot => snapshot.ref.getDownloadURL())
+            .then(url => {
+              console.log(url, 'urlllll');
+              this.setState({
+                sourceProfilePicture: url,
+              });
+            })
+            .catch(console.error);
+        } catch (e) {
+          console.error(e);
+        }
+      })
+      .catch(err => {
+        // Oops, something went wrong. Check that the filename is correct and
+        // inspect err to get more details.
+      });
+    return;
   };
 
   takePicture = () => {
     const options = {
       noData: true,
     };
-    ImagePicker.launchCamera(options, response => {
-      this.setState({
-        sourceProfilePicture: response.uri,
-      });
+    NetInfo.fetch().then(state => {
+      if (state.isConnected) {
+        ImagePicker.launchCamera(options, response => {
+          console.log(response, 'response');
+          if (response.didCancel) {
+            console.log('User cancelled image picker');
+          } else if (response.error) {
+            console.log('ImagePicker Error: ', response.error);
+          } else {
+            this.uploadPicture(response);
+          }
+        });
+      } else {
+        Alert.alert(
+          'Pas de connexion',
+          'Veuillez connecter SVP!',
+          [
+            {
+              text: 'Ok',
+              onPress: null,
+            },
+          ],
+          {
+            cancelable: true,
+          },
+        );
+      }
     });
   };
 
@@ -167,10 +201,36 @@ export default class AddMembers extends Component {
       noData: true,
     };
 
-    ImagePicker.launchImageLibrary(options, response => {
-      this.setState({
-        sourceProfilePicture: response.uri,
-      });
+    NetInfo.fetch().then(state => {
+      if (state.isConnected) {
+        try {
+          ImagePicker.launchImageLibrary(options, response => {
+            if (response.didCancel) {
+              console.log('User cancelled image picker');
+            } else if (response.error) {
+              console.log('ImagePicker Error: ', response.error);
+            } else {
+              this.uploadPicture(response);
+            }
+          });
+        } catch (e) {
+          console.error(e);
+        }
+      } else {
+        Alert.alert(
+          'Pas de connexion',
+          'Veuillez connecter SVP!',
+          [
+            {
+              text: 'Ok',
+              onPress: null,
+            },
+          ],
+          {
+            cancelable: true,
+          },
+        );
+      }
     });
   };
 
@@ -252,7 +312,7 @@ export default class AddMembers extends Component {
                 {t('about_householder')}
               </Text>
             )}
-            <View style={[styles.wrapper_picture, {opacity: 0}]}>
+            <View style={[styles.wrapper_picture]}>
               <AddPicture
                 style={styles.picture}
                 source={sourceProfilePicture}
