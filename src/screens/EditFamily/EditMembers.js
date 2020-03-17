@@ -39,6 +39,7 @@ const initialState = {
   sourceProfilePicture: '',
   notDisclosed: false,
   isHouseholder: false,
+  sourceProfilePicture: '',
 };
 
 export default class EditMembers extends Component {
@@ -74,6 +75,7 @@ export default class EditMembers extends Component {
         female_members: snapshot.female_members,
         notDisclosed: snapshot.notDisclosed,
         isHouseholder: snapshot.isHouseholder,
+        sourceProfilePicture: snapshot.sourceProfilePicture,
         // familyID: 12,
         // familyUuid: '13',
         // date: '',
@@ -259,6 +261,7 @@ export default class EditMembers extends Component {
         familyID: this.props.navigation.state.params.familyID,
         qrCodeID: this.props.navigation.state.params.qrCodeID,
         memberID: this.props.navigation.state.params.membersID,
+        memberPicture: this.state.sourceProfilePicture,
       });
       this.setState(initialState);
       this.allStateEmpty();

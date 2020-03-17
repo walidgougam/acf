@@ -224,7 +224,13 @@ export default class FamilyCard extends Component {
                             }}
                             style={[
                               styles.img_family,
-                              {transform: [{rotate: '90deg'}]},
+                              {
+                                transform: [
+                                  {
+                                    rotate: '90deg',
+                                  },
+                                ],
+                              },
                             ]}
                           />
                         ) : (
@@ -244,22 +250,29 @@ export default class FamilyCard extends Component {
                             : ''}
                         </Text>
                         {/* <Text style={styles.text_membres_date}></Text>
-                        <Text style={styles.text_membres_date}>
-                          {moment(this.state.dateOfCreation).format('l')}
-                        </Text> */}
+                                <Text style={styles.text_membres_date}>
+                                  {moment(this.state.dateOfCreation).format('l')}
+                                </Text> */}
                       </View>
                     </View>
                     <View
                       style={{
                         marginLeft: n(25),
                       }}>
-                      <View style={{flexDirection: 'row', marginTop: 15}}>
-                        <Text style={[styles.text_family_id]}>family id: </Text>
+                      <View
+                        style={{
+                          flexDirection: 'row',
+                          marginTop: 15,
+                        }}>
+                        <Text style={[styles.text_family_id]}>family id:</Text>
                         <Text
                           numberOfLines={3}
                           style={[
                             styles.text_family_id,
-                            {marginLeft: 20, width: 140},
+                            {
+                              marginLeft: 20,
+                              width: 140,
+                            },
                           ]}>
                           {familyData.uuid}
                         </Text>

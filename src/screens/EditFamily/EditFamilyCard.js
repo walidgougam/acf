@@ -46,6 +46,7 @@ export default class EditFamilyCard extends Component {
       nameOfHouseholder: '',
       qrcodeID: '',
       isLoading: true,
+      memberPicture: '',
     };
   }
   static navigationOptions = {
@@ -60,6 +61,7 @@ export default class EditFamilyCard extends Component {
       idOfCurrentFamily,
     });
     this.getDataMember();
+    this.getMemberPicture();
   };
 
   getDataMember() {
@@ -68,6 +70,7 @@ export default class EditFamilyCard extends Component {
       ...this.props.navigation.state.params,
     };
     let _nameHouseholder = '';
+    let _memberPicture = '';
     const _familyMembers = membersFamily[0].family_members;
     for (let i = 0; i < membersFamily.length; i++) {
       if (membersFamily[i].isHouseholder) {
@@ -80,6 +83,13 @@ export default class EditFamilyCard extends Component {
       familyMembers: _familyMembers,
     });
   }
+
+  getMemberPicture = () => {
+    console.log(
+      this.props.navigation.state.params.membersFamily,
+      'member family',
+    );
+  };
 
   urlSnapshot = null;
 
@@ -172,7 +182,7 @@ export default class EditFamilyCard extends Component {
     const {familyData} = {
       ...this.props.navigation.state.params,
     };
-    const {qrCodeID} = this.props.navigation.state.params;
+    const {qrCodeID, memberPicture} = this.props.navigation.state.params;
     return (
       // this.state.isLoading ? (
       //   <View style={{flex: 1, justifyContent: 'center'}}>
@@ -212,10 +222,26 @@ export default class EditFamilyCard extends Component {
                         flexDirection: 'row',
                       }}>
                       <View style={styles.img_family_circle}>
-                        <Image
-                          source={image.family_green}
-                          style={styles.img_family}
-                        />
+                        {memberPicture ? (
+                          <Image
+                            source={{uri: memberPicture}}
+                            style={styles.img_family}
+                          />
+                        ) : (
+                          <Image
+                            source={image.family_green}
+                            style={[
+                              styles.img_family,
+                              {
+                                transform: [
+                                  {
+                                    rotate: '90deg',
+                                  },
+                                ],
+                              },
+                            ]}
+                          />
+                        )}
                       </View>
                       <View style={styles.wrapper_family_info}>
                         <Text style={styles.text_family_name}>
@@ -376,8 +402,8 @@ const styles = StyleSheet.create({
   },
   img_family_circle: {
     backgroundColor: colors.white,
-    width: n(88),
-    height: n(88),
+    width: wp('21.5%'), //n(88),
+    height: hp('11.1%'), //n(88)
     borderRadius: n(107),
     alignItems: 'center',
     justifyContent: 'center',
@@ -385,8 +411,9 @@ const styles = StyleSheet.create({
     marginTop: n(24),
   },
   img_family: {
-    width: n(52),
-    height: n(53),
+    width: wp('21.5%'), //n(88),
+    height: hp('11.1%'), // n(88),
+    borderRadius: n(107),
   },
   wrapper_family_info: {
     marginLeft: n(10),
