@@ -248,7 +248,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   wrapper_inside_scrollview: {
-    marginHorizontal: 17,
+    marginHorizontal: '5%',
   },
   wrapper_white_background: {
     ...typography.wrapper_white_background,
@@ -256,10 +256,10 @@ const styles = StyleSheet.create({
   },
   text_enter_information: {
     fontSize: n(14),
-    lineHeight: 24,
+    lineHeight: n(24),
     color: colors.grey_title,
-    marginTop: 24,
-    marginBottom: 17,
+    marginTop: '6%',
+    marginBottom: '5%',
     fontFamily: fonts.robotoRegular,
   },
 });

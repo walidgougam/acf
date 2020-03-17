@@ -8,6 +8,7 @@ import {
   AsyncStorage,
   Platform,
   Alert,
+  Dimensions,
 } from 'react-native';
 import HomeHeader from '../../components/molecules/HomeHeader';
 import colors from '../../constants/colors/colors';
@@ -102,6 +103,7 @@ export default class Home extends Component {
 
     return (
       <View style={styles.container}>
+        {console.log(Dimensions.get('window').width)}
         <HomeHeader navigation={this.props.navigation} />
         <View style={styles.wrapper_project}>
           <View style={styles.wrapper_project_left}>
@@ -193,14 +195,14 @@ const styles = StyleSheet.create({
   },
   wrapper_project_left: {
     flexDirection: 'row',
+    width: '73%',
   },
   img_project: {
     width: wp('5.1%'),
-    height: hp('2.8%'),
+    height: hp('4%'),
   },
   text_project: {
     color: colors.grey_title,
-    width: 240,
     fontSize: n(16),
     lineHeight: n(24),
     marginLeft: n(10),

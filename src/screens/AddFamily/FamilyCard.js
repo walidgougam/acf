@@ -9,6 +9,7 @@ import {
   PermissionsAndroid,
   Platform,
   AsyncStorage,
+  Dimensions,
 } from 'react-native';
 import MainHeader from '../../components/molecules/MainHeader';
 import typography from '../../constants/typography/textDesign';
@@ -190,6 +191,7 @@ export default class FamilyCard extends Component {
           press={() => this.props.navigation && this.props.navigation.goBack()}
         />
         <View style={styles.wrapper_white_background}>
+          {console.log(Dimensions.get('window').height)}
           <ScrollView showsVerticalScrollIndicator={false}>
             <View style={styles.wrapper_card_and_print}>
               <ViewShot ref="viewShot">
@@ -304,14 +306,12 @@ export default class FamilyCard extends Component {
                       source={image.action_against_hunger}
                       style={styles.img_against_hunger}
                     />
-                    <View style={styles.img_qrcode}>
-                      <QRCode
-                        value={familyData.uuid}
-                        size={n(90)}
-                        bgColor="#FFFFFF"
-                        fgColor="#000000"
-                      />
-                    </View>
+                    <QRCode
+                      value={familyData.uuid}
+                      size={n(90)}
+                      bgColor="#FFFFFF"
+                      fgColor="#000000"
+                    />
                   </View>
                 </View>
               </ViewShot>
@@ -383,16 +383,16 @@ const styles = StyleSheet.create({
   },
   wrapper_top_blue: {
     backgroundColor: colors.blue_mainColorApp,
-    width: wp('62.6%'),
-    height: 238,
+    width: wp('62.6%'), //100%
+    height: hp('30%'), // 238
     borderTopLeftRadius: n(14),
     borderTopRightRadius: n(14),
     //
   },
   img_family_circle: {
     backgroundColor: colors.white,
-    width: n(88),
-    height: n(88),
+    width: wp('21.5%'), //n(88),
+    height: hp('11.1%'), //n(88)
     borderRadius: n(107),
     alignItems: 'center',
     justifyContent: 'center',
@@ -400,8 +400,8 @@ const styles = StyleSheet.create({
     marginTop: n(24),
   },
   img_family: {
-    width: n(88),
-    height: n(88),
+    width: wp('21.5%'), //n(88),
+    height: hp('11.1%'), // n(88),
     borderRadius: n(107),
   },
   wrapper_family_info: {
@@ -429,23 +429,18 @@ const styles = StyleSheet.create({
   },
   wrapper_bottom_white: {
     backgroundColor: colors.white,
-    width: wp('62.6%'),
+    width: '100%',
     height: hp('19.6%'),
     borderBottomLeftRadius: n(14),
     borderBottomRightRadius: n(14),
     flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
   },
   img_against_hunger: {
-    width: n(70),
-    height: n(42),
-    marginTop: n(72),
-    marginLeft: n(20),
-  },
-  img_qrcode: {
-    width: n(93),
-    height: n(93),
-    marginLeft: n(32),
-    marginTop: n(20),
+    width: wp('17%'),
+    height: hp('5.3%'),
+    marginTop: '20%',
   },
   img_print: {
     width: n(24),

@@ -253,10 +253,11 @@ export default class AddMembers extends Component {
       id_acf_owner: auth.currentUser?.uid,
       date: f.database.ServerValue.TIMESTAMP,
     });
-    this.props.navigation.navigate('FamilyMembers', {
-      membersFamily: this.membersFamily,
-      familyData,
-    });
+    !this.allStateEmpty() &&
+      this.props.navigation.navigate('FamilyMembers', {
+        membersFamily: this.membersFamily,
+        familyData,
+      });
     this.setState(initialState);
     this.allStateEmpty();
     return;

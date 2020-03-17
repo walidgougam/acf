@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     color: colors.blue_mainColorApp,
     fontSize: n(19),
     lineHeight: n(23),
-    width: 320,
+    width: n(320),
     fontFamily: fonts.robotoMedium,
   },
   text_detail: {},
