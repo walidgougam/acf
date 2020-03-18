@@ -24,7 +24,20 @@ export default class AddPicture extends Component {
         onPress={this.props.press}>
         <Image
           source={this.sourcePicture()}
-          style={this.props.source ? styles.img_background : styles.img}
+          style={
+            this.props.source
+              ? [
+                  styles.img_background,
+                  {
+                    transform: [
+                      {
+                        rotate: '90deg',
+                      },
+                    ],
+                  },
+                ]
+              : styles.img
+          }
         />
       </TouchableOpacity>
     );

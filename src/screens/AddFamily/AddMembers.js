@@ -315,7 +315,7 @@ export default class AddMembers extends Component {
             )}
             <View style={[styles.wrapper_picture]}>
               <AddPicture
-                style={styles.picture}
+                style={[styles.picture]}
                 source={sourceProfilePicture}
               />
               <BtnMain

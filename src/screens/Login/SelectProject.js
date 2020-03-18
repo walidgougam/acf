@@ -49,15 +49,6 @@ export default class SelectProject extends Component {
     });
 
     this.getData();
-
-    // let data = {
-    //   email: 'superviseur25@acf.com',
-    //   // health_area: ['Mweso-Territoire', 'Kalonda Ouest'],
-    //   health_area: ['Kalomba', 'Drodro'],
-    //   password: Base64.encode('superviseur25'),
-    //   supervisor: false,
-    // };
-    // database.ref('acf_owner/' + auth.currentUser.uid).set({...data});
   };
 
   getData = async () => {
@@ -121,37 +112,43 @@ export default class SelectProject extends Component {
               {t('you_currently_working')}
             </Text>
           </View>
-          <ScrollView
-            style={styles.wrapper_list}
-            showsHorizontalScrollIndicator={false}>
-            {this.state.project.map((_project, index) => {
-              return (
-                <TouchableOpacity
-                  activeOpacity={0.7}
-                  style={styles.list}
-                  key={index}
-                  onPress={() => this.chooseProject(_project)}>
-                  <>
-                    <View
-                      style={{
-                        flexDirection: 'row',
-                        marginLeft: 15,
-                        alignItems: 'center',
-                      }}>
-                      {this.displayIcon(_project.type)}
-                      <Text style={styles.text_title} numberOfLines={3}>
-                        {_project.title}
-                      </Text>
-                    </View>
-                    <Image
-                      source={image.right_arrow}
-                      style={styles.img_arrow}
-                    />
-                  </>
-                </TouchableOpacity>
-              );
-            })}
-          </ScrollView>
+          {isLoading ? (
+            <View style={{flex: 1, justifyContent: 'center'}}>
+              <ActivityIndicator size="large" color="#0000ff" />
+            </View>
+          ) : (
+            <ScrollView
+              style={styles.wrapper_list}
+              showsHorizontalScrollIndicator={false}>
+              {this.state.project.map((_project, index) => {
+                return (
+                  <TouchableOpacity
+                    activeOpacity={0.7}
+                    style={styles.list}
+                    key={index}
+                    onPress={() => this.chooseProject(_project)}>
+                    <>
+                      <View
+                        style={{
+                          flexDirection: 'row',
+                          marginLeft: 15,
+                          alignItems: 'center',
+                        }}>
+                        {this.displayIcon(_project.type)}
+                        <Text style={styles.text_title} numberOfLines={3}>
+                          {_project.title}
+                        </Text>
+                      </View>
+                      <Image
+                        source={image.right_arrow}
+                        style={styles.img_arrow}
+                      />
+                    </>
+                  </TouchableOpacity>
+                );
+              })}
+            </ScrollView>
+          )}
           <TouchableOpacity style={styles.btn_notlisted}>
             {/* <Text style={styles.text_notlisted}>{t('project_not_listed')}</Text> */}
           </TouchableOpacity>
