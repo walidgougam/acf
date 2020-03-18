@@ -198,8 +198,8 @@ const styles = StyleSheet.create({
     width: '73%',
   },
   img_project: {
-    width: wp('5.1%'),
-    height: hp('4%'),
+    width: 20,
+    height: 20,
   },
   text_project: {
     color: colors.grey_title,

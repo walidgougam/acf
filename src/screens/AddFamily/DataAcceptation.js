@@ -58,6 +58,19 @@ export default class DataAcceptation extends Component {
     });
   };
 
+  allStateEmpty = () => {
+    if (
+      !this.state.agreeState1 &&
+      !this.state.disagreeState1 &&
+      !this.state.agreeState2 &&
+      !this.state.disagreeState2
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
   checkedTopBtn = type => {
     let {agreeState1, disagreeState1} = this.state;
     if (agreeState1 === false && type === 1) {
@@ -150,10 +163,11 @@ export default class DataAcceptation extends Component {
           JSON.stringify(food_activity),
         );
       }
-      navigate('FamilyCard', {
-        familyData,
-        membersFamily,
-      });
+      !this.allStateEmpty() &&
+        navigate('FamilyCard', {
+          familyData,
+          membersFamily,
+        });
     });
   };
 
