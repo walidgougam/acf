@@ -34,6 +34,7 @@ export default class Home extends Component {
       showModal: false,
       projectTitle: '',
       supervisor: '',
+      healthOrFood: '',
     };
     this.refModal = React.createRef();
 
@@ -55,10 +56,12 @@ export default class Home extends Component {
 
   componentDidMount = async () => {
     let projectTitle = await AsyncStorage.getItem('projectTitle');
+    let healthOrFood = await AsyncStorage.getItem('healthOrFood');
     let supervisor = await AsyncStorage.getItem('supervisor');
     this.setState({
       projectTitle,
       supervisor,
+      healthOrFood,
     });
     this.getHealthArea();
   };
@@ -90,6 +93,14 @@ export default class Home extends Component {
         });
     }
   };
+  displayIcon = e => {
+    switch (e) {
+      case 'food':
+        return <Image source={image.food} style={styles.img_project} />;
+      case 'health':
+        return <Image source={image.heart} style={styles.img_project} />;
+    }
+  };
 
   render() {
     const dataHome = [
@@ -103,11 +114,10 @@ export default class Home extends Component {
 
     return (
       <View style={styles.container}>
-        {console.log(Dimensions.get('window').width)}
         <HomeHeader navigation={this.props.navigation} />
         <View style={styles.wrapper_project}>
           <View style={styles.wrapper_project_left}>
-            <Image source={image.food} style={styles.img_project} />
+            {this.displayIcon(this.state.healthOrFood)}
             <Text style={styles.text_project} numberOfLines={1}>
               {this.state.projectTitle}
             </Text>
@@ -195,10 +205,11 @@ const styles = StyleSheet.create({
   },
   wrapper_project_left: {
     flexDirection: 'row',
+    alignItems: 'center',
     width: '73%',
   },
   img_project: {
-    width: 20,
+    width: 23,
     height: 20,
   },
   text_project: {

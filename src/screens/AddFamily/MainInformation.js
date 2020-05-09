@@ -41,16 +41,20 @@ export default class MainInformation extends Component {
   }
 
   getHealthAreaOfAcf = () => {
+    console.log(auth.currentUser.uid, 'auth');
     database
       .ref('acf_owner')
       .child(auth.currentUser.uid)
       .once('value', snap => {
         let snapshot = snap.val();
+        console.log(snapshot.health_area, 'snapshot');
         let healthArea = snapshot.health_area;
         let newHealthArea = [];
+        console.log(healthArea, 'health area');
         for (let i = 0; i < healthArea.length; i++) {
           newHealthArea.push({value: healthArea[i]});
         }
+        console.log(newHealthArea, 'new health area');
         this.setState({
           healthAreaAcf: newHealthArea,
         });
@@ -135,6 +139,7 @@ export default class MainInformation extends Component {
           topic={singlePerson ? t('register_single') : t('register_family')}
         />
         <View style={styles.wrapper_white_background}>
+          {console.log(this.state.healthAreaAcf, 'this.state.healthareaacf')}
           <ScrollView showsVerticalScrollIndicator={false}>
             <View style={styles.wrapper_inside_scrollview}>
               <Text style={styles.text_enter_information}>

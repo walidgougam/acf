@@ -17,7 +17,7 @@ import ModalHome from './src/screens/Home/ModalHome';
 import MainInformation from './src/screens/AddFamily/MainInformation';
 import AddMembers from './src/screens/AddFamily/AddMembers';
 import FoodActivity from './src/screens/AddFamily/FoodActivity';
-import FoodActivity3 from './src/screens/HealthActivity/FoodActivity3';
+// import FoodActivity3 from './src/screens/HealthActivity/FoodActivity3';
 import FamilyMembers from './src/screens/AddFamily/FamilyMembers';
 import DataAcceptation from './src/screens/AddFamily/DataAcceptation';
 import FamilyCard from './src/screens/AddFamily/FamilyCard';
@@ -131,7 +131,7 @@ const SupervisorStack = createStackNavigator({
   SearchResult: SearchResult,
   DeliverAndHistory: DeliverAndHistory,
   DeliverAndHistorySearch: DeliverAndHistorySearch,
-  FoodActivity3: FoodActivity3,
+  // FoodActivity3: FoodActivity3,
 });
 
 const AppNavigation = createSwitchNavigator({

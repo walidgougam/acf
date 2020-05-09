@@ -76,6 +76,7 @@ export default class SelectProject extends Component {
 
   chooseProject = async project => {
     await AsyncStorage.setItem('projectTitle', project.title);
+    await AsyncStorage.setItem('healthOrFood', project.type);
     this.props.navigation.navigate('Home');
   };
 
@@ -203,8 +204,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   img_topic: {
-    width: n(20),
-    height: n(20),
+    width: n(22),
+    height: n(19),
   },
   text_title: {
     fontSize: n(16),
